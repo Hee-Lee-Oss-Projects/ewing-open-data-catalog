@@ -1,0 +1,34 @@
+{
+  "id": "ewing-open-data-catalog-reviewer-001",
+  "title": "Name/secure the License+Access+Re-identification reviewer (blocking gate role)",
+  "project": "ewing-open-data-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer-research", "ewing-sarcoma", "open-data", "genomics", "data-governance"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "This catalog documents only OPEN-ACCESS, aggregate, de-identified Ewing sarcoma datasets; controlled-access (dbGaP/EGA/DACO) and individual-level data are out of scope. Because Ewing is a rare pediatric/AYA cancer, license interpretation, access-tier verification, and genomic re-identification risk require specialist judgement. The three-part gate (access-tier + license + re-identification) is a non-skippable blocking step, so a named, qualified reviewer must exist before any dataset is documented. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Recruit/designate and record a named reviewer competent in both open-data/biomedical licensing (CC/SPDX/consortium DUAs) and genomic-data governance / re-identification risk, who will sign off the blocking gate before the M0 pilot is reviewed.",
+  "acceptanceCriteria": [
+    "A named reviewer (with stated qualification in open-data/biomedical licensing AND genomic-data governance / re-identification) is recorded in PLAN.md Governance.",
+    "The reviewer's scope and authority are documented: confirms access tier is open, license permits derivative metadata (permitsDerivatives clause cited), and re-identification risk is acceptable; can EXCLUDE/FLAG any dataset.",
+    "At least one named, qualified reviewer exists at all times; a rotation of >= 2 is preferred to avoid a single-person bottleneck; if none exists, triage and documentation halt.",
+    "The role is confirmed filled before the M0 pilot task (ewing-open-data-catalog-pilot-009) is reviewed; until filled, all tasks remain verifiedNeed:false and no dataset can pass the gate.",
+    "Conflict-of-interest stance recorded: the reviewer must not be steered to shape inclusion toward any for-profit beneficiary."
+  ],
+  "resources": [
+    "C:\\code\\elyos\\planning\\projects\\ewing-open-data-catalog\\PLAN.md",
+    "C:\\code\\elyos\\docs\\good-deed-definition.md",
+    "C:\\code\\elyos\\planning\\ROADMAP.md",
+    "Datasheets for Datasets (Gebru et al.)",
+    "SPDX license list; Creative Commons CC0 / CC-BY 4.0"
+  ],
+  "output": "A short governance document naming the License+Access+Re-identification reviewer(s), their qualifications, scope/authority, rotation plan, and COI stance, recorded in PLAN.md Governance and committed to the project repo.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
