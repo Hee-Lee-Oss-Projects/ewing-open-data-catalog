@@ -1,0 +1,33 @@
+{
+  "id": "ewing-open-data-catalog-template-002",
+  "title": "Datasheet template + canonical biomedical metadata model",
+  "project": "ewing-open-data-catalog",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "open-science"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The catalog needs a single canonical metadata model and a Markdown datasheet template before any dataset is documented, so every entry is structured and comparable. The model must capture access tier, license, provenance, re-identification assessment, and aggregate molecular annotation for Ewing sarcoma datasets. Every deliverable carries the standing label that this is research metadata only — not medical advice. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Publish a canonical metadata model document plus a reusable Markdown datasheet template (Datasheets-for-Datasets questionnaire) covering all required fields, with at least one worked synthetic example.",
+  "acceptanceCriteria": [
+    "Canonical metadata model documents every field from PLAN: id, title, accession, repository, submitterOrConsortium, accessTier{tier,evidenceUrl}, license{id,url,permitsDerivatives,snapshotRef,dataUseConditions}, provenance{retrievedAt,version,publicationPmidDoi,consortiumPolicyUrl,attribution}, reidentification{riskLevel,basis,smallCellsFlag,germlinePresent,notes}, molecular{tumorType,driverFusion,assay,cohortSizeAggregate,sourcePublication}, fields[], knownIssues[], lineage{duplicateOf,supersedes}, examples[], specVersions, completenessScore{before,after}, disclaimer.",
+    "Markdown datasheet template covers the Datasheets-for-Datasets questionnaire (incl. a consent/ethics-provenance section) plus data dictionary, provenance, license/terms record, molecular annotation, known-issues, lineage, and worked examples.",
+    "Template states the deliverable is documentation/metadata, not data; carries the \"research metadata only — not medical advice\" label; documentation output licensed CC-BY-4.0.",
+    "At least one filled-in worked example skeleton (synthetic/public metadata only) is included."
+  ],
+  "output": "docs/canonical-metadata-model.md and docs/datasheet-template.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

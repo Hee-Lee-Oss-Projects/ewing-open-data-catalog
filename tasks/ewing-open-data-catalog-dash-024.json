@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-dash-024",
+  "title": "Outcome dashboard for adopted entries + reuse events",
+  "project": "ewing-open-data-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metrics",
+    "software"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "A dashboard that reads the outcome ledger to surface adopted entries and verified reuse events supports success-metric tracking for the catalog. It consumes only committed ledger data, no individual-level data. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Deliver an outcome dashboard that reads the outcome ledger and reports adopted entries + reuse events, as a PR.",
+  "acceptanceCriteria": [
+    "Reads the outcome ledger and displays adopted entries and verified reuse events, supporting success-metric tracking.",
+    "Consumes only committed ledger/metadata; no individual-level data.",
+    "Code MIT-licensed; tests + CI green; DCO signed-off."
+  ],
+  "output": "src/dashboard/ (reads the outcome ledger)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-croissant-006",
+  "title": "Croissant ML metadata generator + spec validator",
+  "project": "ewing-open-data-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "software"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Catalog entries should emit machine-readable Croissant ML metadata so downstream ML/data tooling can consume them. This task builds a generator that maps the canonical metadata model to pinned Croissant ML v1.0 and validates output against the spec. It ships with golden fixtures built only from synthetic/public metadata. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Deliver a Croissant ML metadata generator + spec validator (pinned v1.0) with committed golden fixtures exercised in CI, as a PR.",
+  "acceptanceCriteria": [
+    "Emits and validates against the pinned Croissant ML v1.0 context/SHACL (version recorded in specVersions).",
+    "Ships committed golden fixtures (synthetic/public metadata only): valid metadata that must pass and malformed cases that must fail, exercised in CI.",
+    "Code MIT-licensed; pnpm build && pnpm test && pnpm lint green; DCO signed-off."
+  ],
+  "output": "src/croissant/ (generator + validator) with tests under src/croissant/__fixtures__/",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

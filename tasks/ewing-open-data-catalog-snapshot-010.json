@@ -1,0 +1,31 @@
+{
+  "id": "ewing-open-data-catalog-snapshot-010",
+  "title": "License/data-use-terms snapshot capture in provenance flow",
+  "project": "ewing-open-data-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "data-governance",
+    "software"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Provenance must capture an immutable snapshot of each source's license/terms, not a bare URL that can change. This task implements the decided snapshot format: committed local copy + SHA-256 hash + Wayback save URL, recorded in license.snapshotRef, plus dataUseConditions text where a DUA/registration applies. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Implement license/terms snapshot capture (committed copy + SHA-256 + Wayback URL) wired into the provenance flow, as a PR.",
+  "acceptanceCriteria": [
+    "Implements the decided format: committed local copy of the license/terms page + SHA-256 hash + Wayback save URL; license.snapshotRef records committed path, hash, Wayback timestamp; also captures dataUseConditions text where a DUA/registration applies. Bare URL insufficient.",
+    "Code MIT-licensed; tests + CI green; no credentials embedded."
+  ],
+  "output": "src/provenance/snapshot.ts with fixtures under src/provenance/__fixtures__/",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-kg-handoff-025",
+  "title": "Structured handoff feed to ewsr1-fli1-knowledge-graph",
+  "project": "ewing-open-data-catalog",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "open-science"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The sibling ewsr1-fli1-knowledge-graph project can consume the catalog's vetted datasets. This task defines the export contract for a structured handoff feed of gate-passed, adopted datasets so the KG project can import them reliably. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Define the export contract for a structured vetted-dataset handoff feed to the ewsr1-fli1-knowledge-graph project.",
+  "acceptanceCriteria": [
+    "Specifies a structured feed of vetted (gate-passed, adopted) datasets with the fields and format the ewsr1-fli1-knowledge-graph project needs to import.",
+    "Defines the export contract (schema, versioning, update cadence) and confirms only gate-passed open-access metadata is exported.",
+    "Output licensed CC-BY-4.0; carries the \"research metadata only — not medical advice\" label; no individual-level data in the feed."
+  ],
+  "output": "docs/kg-handoff-contract.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

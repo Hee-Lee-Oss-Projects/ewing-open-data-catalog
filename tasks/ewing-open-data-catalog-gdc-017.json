@@ -1,0 +1,34 @@
+{
+  "id": "ewing-open-data-catalog-gdc-017",
+  "title": "GDC / ICGC open-tier metadata adapter",
+  "project": "ewing-open-data-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "software",
+    "data-governance"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "An adapter that transforms GDC/ICGC open-tier public metadata (cases/files metadata) into a valid canonical record, for the pinned API version recorded in specVersions. The open-tier scoping is sensitive, so the Gate reviewer confirms the adapter never touches controlled-access endpoints (hence riskTier medium). Golden captured-response fixtures are diffed in CI. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Deliver a GDC/ICGC open-tier metadata adapter that emits valid canonical records from open-tier public metadata, Gate-confirmed for scoping, with golden fixtures and CI, as a PR.",
+  "acceptanceCriteria": [
+    "Transforms the source's public metadata response into a valid canonical record for the pinned API version (recorded in specVersions): GDC/ICGC open-tier cases/files metadata.",
+    "Ships committed golden captured public-metadata response -> expected canonical record fixtures, diffed in CI; output validated against the canonical-model schema.",
+    "Open tier only: the adapter never requests authenticated/controlled-access endpoints; the Gate reviewer confirms the open-tier scoping.",
+    "Code MIT-licensed; unit tests + CI green; no credentials embedded; no individual-level data in fixtures."
+  ],
+  "output": "src/adapters/gdc/ with fixtures under src/adapters/gdc/__fixtures__/",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

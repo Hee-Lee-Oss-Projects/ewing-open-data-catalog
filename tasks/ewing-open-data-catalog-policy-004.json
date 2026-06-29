@@ -1,0 +1,33 @@
+{
+  "id": "ewing-open-data-catalog-policy-004",
+  "title": "NC / DUA / share-alike acceptance policy (COSMIC/OncoKB NC, Treehouse/ICGC DUA)",
+  "project": "ewing-open-data-catalog",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "data-governance",
+    "licensing"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Some Ewing-relevant sources carry non-commercial (NC) terms (e.g. COSMIC, OncoKB) or require a data-use agreement / registration (e.g. Treehouse, ICGC). The gate (gate-003) defers these cases to an explicit, written acceptance policy rather than guessing. The policy decides what the catalog may document as derivative metadata without breaching source terms. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Publish an acceptance policy that decides, with rationale, how NC, DUA/registration, and share-alike terms are handled before a dataset can pass gate-003.",
+  "acceptanceCriteria": [
+    "Policy states a clear accept/flag/exclude rule for each class: non-commercial reference databases (e.g. COSMIC, OncoKB), DUA/registration-gated sources (e.g. Treehouse, ICGC controlled), and share-alike (e.g. CC-BY-SA) licenses, with cited reasoning.",
+    "Policy confirms the catalog only documents derivative metadata, never redistributes source data, and records dataUseConditions text where a DUA/registration applies.",
+    "Policy is consistent with gate-003 (no default-allow; missing/unparseable terms FLAG or EXCLUDE) and is the authority the gate defers NC/DUA/share-alike cases to.",
+    "Policy is reviewed by the Gate reviewer and merged before any dataset triage proceeds; output licensed CC-BY-4.0; carries the \"research metadata only — not medical advice\" label."
+  ],
+  "output": "docs/acceptance-policy.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

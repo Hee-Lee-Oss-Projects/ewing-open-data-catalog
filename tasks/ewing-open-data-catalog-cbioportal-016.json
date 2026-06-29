@@ -1,0 +1,33 @@
+{
+  "id": "ewing-open-data-catalog-cbioportal-016",
+  "title": "cBioPortal web-API metadata adapter",
+  "project": "ewing-open-data-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "software"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "An adapter that transforms cBioPortal public metadata (the /api study + clinical-attribute endpoints) into a valid canonical record, for the pinned API version recorded in specVersions. Open tier only, with golden captured-response fixtures diffed in CI. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Deliver a cBioPortal web-API metadata adapter that emits valid canonical records from public metadata, with golden fixtures and CI, as a PR.",
+  "acceptanceCriteria": [
+    "Transforms the source's public metadata response into a valid canonical record for the pinned API version (recorded in specVersions): cBioPortal /api study/clinical-attribute.",
+    "Ships committed golden captured public-metadata response -> expected canonical record fixtures, diffed in CI; output validated against the canonical-model schema.",
+    "Open tier only: the adapter never requests authenticated/controlled-access endpoints.",
+    "Code MIT-licensed; unit tests + CI green; no credentials embedded; no individual-level data in fixtures."
+  ],
+  "output": "src/adapters/cbioportal/ with fixtures under src/adapters/cbioportal/__fixtures__/",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

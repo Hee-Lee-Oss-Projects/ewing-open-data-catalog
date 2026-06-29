@@ -1,0 +1,34 @@
+{
+  "id": "ewing-open-data-catalog-gate-003",
+  "title": "Three-part triage gate: access-tier + license + re-identification (blocking)",
+  "project": "ewing-open-data-catalog",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "data-governance",
+    "open-science"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Before any Ewing dataset is documented it must clear a non-skippable, fixed-order blocking gate: access-tier, then license, then re-identification risk. This protects the catalog's scope of only open-access, aggregate, de-identified data and keeps controlled-access and individual-level data out. The gate emits a committed PASS/FLAG/EXCLUDE artifact per dataset. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Specify and publish the three-part triage gate (access-tier, license, re-identification) with a committed per-dataset PASS/FLAG/EXCLUDE artifact format and the inspection access protocol.",
+  "acceptanceCriteria": [
+    "Gate runs in fixed order, all blocking: (a) access-tier — PASS only if positively confirmed open-access with a cited evidenceUrl; controlled-access (dbGaP/EGA/DACO/TARGET-controlled/individual biobank) = immediate EXCLUDE; unconfirmable = EXCLUDE.",
+    "(b) license — PASS only if permitsDerivatives: true is set from a cited clause/URL; missing/unparseable/NC-reference-DB/embargoed = FLAG/EXCLUDE (no default-allow); defers NC/DUA/share-alike cases to policy-004.",
+    "(c) re-identification — applies the methodology: germline-variant-level data EXCLUDED; k<5 small-cell flag; geo/linkage checks; aggregate-only confirmed. Any flag = EXCLUDE/FLAG unless publisher-documented aggregation meets thresholds; we never re-identify or anonymize.",
+    "Inspection during triage follows the access protocol (metadata/header reads, open tier only, aggregate only, local/ephemeral, no committed individual-level data; halt on any signal).",
+    "Produces a committed, reviewable PASS/FLAG/EXCLUDE artifact per dataset recording which checks ran and what fired, plus the completeness before-score."
+  ],
+  "output": "docs/triage-gate.md and review/gate-artifact-template.json",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-triage-011",
+  "title": "Triage 6 candidate Ewing datasets through the three-part gate",
+  "project": "ewing-open-data-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "data-governance",
+    "open-science"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Apply the three-part gate (gate-003) and acceptance policy (policy-004) to six candidate Ewing datasets from the coverage shortlist, producing a committed PASS/FLAG/EXCLUDE artifact per dataset. Controlled-access, NC reference DB, embargoed, germline-level, or small-N-risky datasets are excluded/flagged with the concern surfaced, never guessed. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Triage six candidate Ewing datasets through the three-part gate and commit a PASS/FLAG/EXCLUDE artifact (with rationale) for each.",
+  "acceptanceCriteria": [
+    "Six datasets evaluated with a committed gate-003 artifact each (access-tier + license + re-id; PASS/FLAG/EXCLUDE + rationale), applying policy-004.",
+    "Each PASS records access-tier evidence, license id/URL/snapshot, permitsDerivatives: true with cited clause, and the re-identification assessment.",
+    "Any controlled-access, NC reference DB, embargoed, germline-level, or small-N-risky dataset is EXCLUDED/FLAGGED with the concern surfaced (not guessed)."
+  ],
+  "output": "review/triage/ (one gate artifact JSON per dataset)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

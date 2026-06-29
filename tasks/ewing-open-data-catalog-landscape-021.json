@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-landscape-021",
+  "title": "Broaden coverage across ≥ 3 source families → index v1.0",
+  "project": "ewing-open-data-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "data-governance"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "Broaden the catalog to >= 6 datasets adopted cumulatively across >= 3 source families and cut index v1.0, each dataset gate-passed and adopted/DOI-published with the refresh process applied. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Broaden coverage to >= 6 adopted datasets across >= 3 source families and publish index v1.0 with the refresh process applied.",
+  "acceptanceCriteria": [
+    ">= 6 datasets adopted cumulatively across >= 3 source families, each with a committed gate-003 artifact and adoption/DOI-publication evidence.",
+    "Index v1.0 published and re-archived to Zenodo (new DOI); prior versions remain citable; refresh-020 staleness process applied to existing entries.",
+    "\"research metadata only — not medical advice\" label present on every entry; no individual-level data committed."
+  ],
+  "output": "output/ index v1.0 (canonical records + datasheets + croissant across >= 3 source families)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

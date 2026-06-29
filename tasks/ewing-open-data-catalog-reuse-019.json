@@ -1,0 +1,31 @@
+{
+  "id": "ewing-open-data-catalog-reuse-019",
+  "title": "Track and verify external reuse events (incl. sibling-project consumption)",
+  "project": "ewing-open-data-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "open-science",
+    "metrics"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Success is measured as real reuse, not entries published. This task records verifiable external reuse events in the outcome ledger, each linked to externally verifiable evidence (no self-reported reuse), including at least one sibling-project consumption. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Record at least three verifiable external reuse events (including >= 1 sibling-project consumption) in the outcome ledger with linked evidence.",
+  "acceptanceCriteria": [
+    ">= 3 verifiable external reuse events recorded in the outcome ledger (citation/DOI reference, merged PR, or sibling-project import — incl. >= 1 sibling-project consumption).",
+    "Each event links to externally verifiable evidence (no self-reported reuse)."
+  ],
+  "output": "docs/reuse-ledger.md (outcome ledger reuse events)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

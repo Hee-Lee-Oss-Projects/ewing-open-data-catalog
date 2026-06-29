@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-doc-013",
+  "title": "Datasheet for adopted dataset #3 (ICGC open-tier Ewing project)",
+  "project": "ewing-open-data-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "data-governance"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Document the third adopted dataset, an ICGC open-tier Ewing project, end-to-end: gate artifact, canonical record, datasheet, valid Croissant, and an index v0.1 entry. Only the open tier is in scope; controlled ICGC/DACO data is excluded. Molecular/fusion annotation is sourced from the dataset's publication, never inferred. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Produce the complete datasheet + canonical record + valid Croissant for an adopted ICGC open-tier Ewing project and add it to index v0.1.",
+  "acceptanceCriteria": [
+    "Source passed gate-003 with committed artifact (open tier only; controlled ICGC/DACO excluded); molecular/fusion annotation sourced from the dataset's publication (PMID/DOI), never inferred.",
+    "Complete canonical record + Datasheet + valid Croissant; completeness >= 90/100 (before/after recorded); \"not medical advice\" label present; no individual-level data committed.",
+    "Entry added to index v0.1 and adopted/cited/DOI-published, with the Steward's acceptance evidence artifact recorded — or submitted with the blocker surfaced."
+  ],
+  "output": "output/<icgc-dataset-id>/ (canonical record, datasheet, croissant) and index v0.1 entry",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
