@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-scale-018",
+  "title": "Datasheets for datasets #4–#6 via adapters",
+  "project": "ewing-open-data-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "data-governance"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "Document three more Ewing datasets (#4–#6) using the source adapters, spanning at least two source families, each gate-passed and adopted/DOI-published. Per-dataset effort is recorded in the outcome ledger to show reduction vs the M0/M1 baseline. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Document datasets #4–#6 via the adapters with gate artifacts, adoption/DOI publication across >= 2 source families, and per-dataset effort recorded in the ledger.",
+  "acceptanceCriteria": [
+    "All three datasets pass gate-003 with committed artifacts.",
+    "Canonical records emitted via the relevant adapter; entries adopted/DOI-published, spanning >= 2 source families, with acceptance evidence artifacts recorded.",
+    "Per-dataset effort recorded in the outcome ledger (AI-session minutes + review cycles) to show reduction vs. the recorded M0/M1 baseline median."
+  ],
+  "output": "output/ (canonical record + datasheet + croissant per dataset #4–#6) and ledger entries",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

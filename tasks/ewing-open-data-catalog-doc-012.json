@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-doc-012",
+  "title": "Datasheet for adopted dataset #2 (cBioPortal Ewing study)",
+  "project": "ewing-open-data-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "data-governance"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Document the second adopted dataset, a cBioPortal open-access Ewing study, end-to-end: gate artifact, canonical record, datasheet, valid Croissant, and an index v0.1 entry. Molecular/fusion annotation is sourced from the dataset's publication, never inferred. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Produce the complete datasheet + canonical record + valid Croissant for an adopted cBioPortal Ewing study and add it to index v0.1.",
+  "acceptanceCriteria": [
+    "Source passed gate-003 with committed artifact; molecular/fusion annotation sourced from the dataset's publication (PMID/DOI), never inferred.",
+    "Complete canonical record + Datasheet + valid Croissant; completeness >= 90/100 (before/after recorded); \"not medical advice\" label present; no individual-level data committed.",
+    "Entry added to index v0.1 and adopted/cited/DOI-published, with the Steward's acceptance evidence artifact recorded — or submitted with the blocker surfaced."
+  ],
+  "output": "output/<cbioportal-dataset-id>/ (canonical record, datasheet, croissant) and index v0.1 entry",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

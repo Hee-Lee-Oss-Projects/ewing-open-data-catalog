@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-dedup-022",
+  "title": "Duplicate/lineage detection across reposts & re-curations",
+  "project": "ewing-open-data-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "software"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "GEO reposts and cBioPortal re-curations can describe the same underlying Ewing cohort, risking double-counting. This task builds duplicate/lineage detection that populates lineage{duplicateOf,supersedes} so cohorts are not counted twice. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Deliver duplicate/lineage detection that populates lineage{duplicateOf,supersedes} across reposts/re-curations, as a PR.",
+  "acceptanceCriteria": [
+    "Detects likely-duplicate or re-curated entries (GEO reposts, cBioPortal re-curations of the same cohort) and populates lineage{duplicateOf,supersedes} on the canonical records.",
+    "Prevents double-counting cohorts in catalog/index roll-ups; decisions are reviewable.",
+    "Code MIT-licensed; tests + CI green; no individual-level data in fixtures."
+  ],
+  "output": "src/lineage/ (duplicate/lineage detection) with fixtures",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-partner-014",
+  "title": "Secure first confirmed partner / sibling-project consumer",
+  "project": "ewing-open-data-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "open-science",
+    "community"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The catalog's per-task delivery need stays unproven until a named advocacy org, repository, or sibling-project owner confirms they will adopt, host, cite, or consume it. This task converts outreach (outreach-008) into a confirmed consumer and updates that partner's tasks to verifiedNeed: true. Until then all tasks remain verifiedNeed false. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Secure and record one confirmed partner/consumer for the catalog, with the adoption mechanism documented.",
+  "acceptanceCriteria": [
+    "A named advocacy org / repository / sibling-project owner confirms they will adopt, host, cite, or consume the catalog.",
+    "Adoption/consumption mechanism documented (index link / repo PR / sibling-project import).",
+    "Tasks for that partner updated to verifiedNeed: true with requestor set."
+  ],
+  "output": "docs/partners.md recording the confirmed partner and adoption mechanism",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

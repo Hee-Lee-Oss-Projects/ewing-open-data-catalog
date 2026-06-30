@@ -290,3 +290,51 @@ steward identified for ongoing liaison.
   → license → re-identification) before work proceeds; listing a candidate never pre-approves it.
 - No task delivers `dataset`: code → `pr`; documentation/metadata/index → `document`; translation →
   `translation`. `verifiedNeed: false` and `requestor: "TO BE SECURED"` until a partner is confirmed.
+
+---
+
+## Generated task index
+
+Every backlog row above now has an executable, schema-valid `tasks/<id>.json` (validated against
+`packages/schema` taskSchema). The Elyos CLI executes these JSON files, not this Markdown.
+
+| ID | tasks/ file | Type | Deliverable | License |
+| --- | --- | --- | --- | --- |
+| ewing-open-data-catalog-reviewer-001 | `tasks/ewing-open-data-catalog-reviewer-001.json` *(seed)* | research | document | CC-BY-4.0 |
+| ewing-open-data-catalog-template-002 | `tasks/ewing-open-data-catalog-template-002.json` | writing | document | CC-BY-4.0 |
+| ewing-open-data-catalog-gate-003 | `tasks/ewing-open-data-catalog-gate-003.json` | design-spec | document | CC-BY-4.0 |
+| ewing-open-data-catalog-policy-004 | `tasks/ewing-open-data-catalog-policy-004.json` | design-spec | document | CC-BY-4.0 |
+| ewing-open-data-catalog-coverage-005 | `tasks/ewing-open-data-catalog-coverage-005.json` | research | document | CC-BY-4.0 |
+| ewing-open-data-catalog-croissant-006 | `tasks/ewing-open-data-catalog-croissant-006.json` | code | pr | MIT |
+| ewing-open-data-catalog-validator-007 | `tasks/ewing-open-data-catalog-validator-007.json` | code | pr | MIT |
+| ewing-open-data-catalog-outreach-008 | `tasks/ewing-open-data-catalog-outreach-008.json` | research | document | CC-BY-4.0 |
+| ewing-open-data-catalog-pilot-009 | `tasks/ewing-open-data-catalog-pilot-009.json` | data | document | CC-BY-4.0 |
+| ewing-open-data-catalog-snapshot-010 | `tasks/ewing-open-data-catalog-snapshot-010.json` | code | pr | MIT |
+| ewing-open-data-catalog-triage-011 | `tasks/ewing-open-data-catalog-triage-011.json` | research | document | CC-BY-4.0 |
+| ewing-open-data-catalog-doc-012 | `tasks/ewing-open-data-catalog-doc-012.json` | data | document | CC-BY-4.0 |
+| ewing-open-data-catalog-doc-013 | `tasks/ewing-open-data-catalog-doc-013.json` | data | document | CC-BY-4.0 |
+| ewing-open-data-catalog-partner-014 | `tasks/ewing-open-data-catalog-partner-014.json` | research | document | CC-BY-4.0 |
+| ewing-open-data-catalog-geo-015 | `tasks/ewing-open-data-catalog-geo-015.json` | code | pr | MIT |
+| ewing-open-data-catalog-cbioportal-016 | `tasks/ewing-open-data-catalog-cbioportal-016.json` | code | pr | MIT |
+| ewing-open-data-catalog-gdc-017 | `tasks/ewing-open-data-catalog-gdc-017.json` | code | pr | MIT |
+| ewing-open-data-catalog-scale-018 | `tasks/ewing-open-data-catalog-scale-018.json` | data | document | CC-BY-4.0 |
+| ewing-open-data-catalog-reuse-019 | `tasks/ewing-open-data-catalog-reuse-019.json` | research | document | CC-BY-4.0 |
+| ewing-open-data-catalog-refresh-020 | `tasks/ewing-open-data-catalog-refresh-020.json` | maintenance | document | CC-BY-4.0 |
+| ewing-open-data-catalog-landscape-021 | `tasks/ewing-open-data-catalog-landscape-021.json` | data | document | CC-BY-4.0 |
+| ewing-open-data-catalog-dedup-022 | `tasks/ewing-open-data-catalog-dedup-022.json` | code | pr | MIT |
+| ewing-open-data-catalog-i18n-023 | `tasks/ewing-open-data-catalog-i18n-023.json` | writing | translation | CC-BY-4.0 |
+| ewing-open-data-catalog-dash-024 | `tasks/ewing-open-data-catalog-dash-024.json` | code | pr | MIT |
+| ewing-open-data-catalog-kg-handoff-025 | `tasks/ewing-open-data-catalog-kg-handoff-025.json` | design-spec | document | CC-BY-4.0 |
+
+**Generated set: 25 task files** (24 generated + 1 pre-existing seed) — one per backlog row across
+M0–M3 and Backlog/future. All start `status: open`, `verifiedNeed: false`, `requestor: "TO BE
+SECURED"`. (Note: the rollup counts above predate this decomposition; the executable set is the 25
+rows enumerated here.)
+
+**No fan-out performed.** Per-dataset documentation rows (`pilot-009`, `doc-012/013`, `scale-018`,
+`landscape-021`) reference source *families* (GEO, cBioPortal, ICGC), but no specific dataset
+accessions are enumerated in PLAN.md/TASKS.md — candidate datasets are produced by `coverage-005`/
+`triage-011` and remain "TO BE SECURED". Per the honesty guardrail, these stay as representative
+tasks; they expand into per-accession tasks only once a gated, named dataset shortlist exists. The
+`i18n-023` translation task uses `type: writing` with `deliverable: translation` (translation is a
+deliverable, not a task type in the schema).

@@ -1,0 +1,35 @@
+{
+  "id": "ewing-open-data-catalog-pilot-009",
+  "title": "One GEO Ewing series: datasheet end-to-end + published index entry (Zenodo DOI fallback)",
+  "project": "ewing-open-data-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "data-governance"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The M0 deliverable is one real GEO Ewing series documented end-to-end: gate artifact, canonical record, datasheet, valid Croissant metadata, and a published index entry with a Zenodo DOI fallback so a delivered outcome is reachable even without an adoption channel. It exercises every M0 foundation piece together. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Document one open-access GEO Ewing series end-to-end and publish its index entry with a Zenodo DOI (adopt via an informal channel if one exists), with acceptance evidence recorded.",
+  "acceptanceCriteria": [
+    "Pilot selected on a realistic delivery path: an informal adoption channel if one exists, else the Zenodo DOI self-serve fallback so a real delivered outcome is reachable.",
+    "Dataset passed gate-003 (open access confirmed; license permits derivative metadata; re-id risk acceptable) with the artifact committed.",
+    "Complete canonical record + Datasheet + valid Croissant metadata + molecular annotation (fusion sourced from the dataset's publication); completeness recorded (before/after, after >= 90/100).",
+    "Validation script runs clean in CI and emits a quality report; no individual-level data committed.",
+    "Provenance recorded (accession, version, PMID/DOI, consortium policy URL, attribution; license snapshot = committed copy + SHA-256 + Wayback URL); \"not medical advice\" label present.",
+    "Index entry published with a Zenodo DOI (and adopted via an informal channel if one exists), with the Steward's acceptance evidence artifact (outcomes/<dataset-id>.json) recorded — or, if no channel materializes, submitted with the blocker surfaced."
+  ],
+  "output": "output/<dataset-id>/ (canonical record, datasheet, croissant) and review/<dataset-id>-gate.json",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

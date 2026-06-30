@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-i18n-023",
+  "title": "Translate a delivered datasheet summary (domain reviewer)",
+  "project": "ewing-open-data-catalog",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "translation",
+    "open-science"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Translating a delivered datasheet summary widens reuse, but biomedical content needs a bilingual domain reviewer and must keep the \"research metadata only — not medical advice\" label intact. Only an already-delivered datasheet is translated, never raw data. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Translate one delivered datasheet summary into a target language, domain-reviewed, with the not-medical-advice label preserved.",
+  "acceptanceCriteria": [
+    "An already-delivered datasheet summary is translated into a target language by/with a bilingual domain reviewer.",
+    "The \"research metadata only — not medical advice\" label and all license/provenance notices are preserved in the translation.",
+    "Translation reviewed for biomedical accuracy; output licensed CC-BY-4.0; no individual-level data introduced."
+  ],
+  "output": "output/<dataset-id>/datasheet.<lang>.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

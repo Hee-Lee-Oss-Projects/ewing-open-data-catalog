@@ -1,0 +1,33 @@
+{
+  "id": "ewing-open-data-catalog-validator-007",
+  "title": "Reusable metadata validation script + quality report",
+  "project": "ewing-open-data-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "software"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Every documented dataset needs an automated check that its canonical record is complete and well-formed, plus a quality/completeness report. This reusable script runs in CI and underpins the completeness-score (before/after) used across documentation tasks. It must never require or commit individual-level data. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Deliver a reusable metadata validation script that validates a canonical record against the schema and emits a completeness/quality report, as a PR with CI integration.",
+  "acceptanceCriteria": [
+    "Script validates a canonical record against the canonical-metadata-model schema and reports missing/invalid fields.",
+    "Emits a completeness/quality report with a before/after completeness score (out of 100) usable by documentation tasks.",
+    "Runs clean in CI on committed fixtures (synthetic/public metadata only); no individual-level data required or committed.",
+    "Code MIT-licensed; pnpm build && pnpm test && pnpm lint green; DCO signed-off."
+  ],
+  "output": "scripts/validate-metadata.mjs plus a generated report under output/",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

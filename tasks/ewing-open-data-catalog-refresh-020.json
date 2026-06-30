@@ -1,0 +1,31 @@
+{
+  "id": "ewing-open-data-catalog-refresh-020",
+  "title": "Staleness/refresh process + source version-drift detection",
+  "project": "ewing-open-data-catalog",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "metadata",
+    "maintenance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Documented datasets drift as sources (GEO/cBioPortal/ICGC) update. This task documents a process to detect drift from a recorded version, flags it via the validation script, turns stale entries into maintenance tasks, and re-archives the index to Zenodo on each version so prior versions stay citable. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Document a staleness/refresh process with source version-drift detection and Zenodo re-archival policy.",
+  "acceptanceCriteria": [
+    "Documented process to detect when a documented dataset has drifted from its recorded version (GEO/cBioPortal/ICGC updates); validation script flags drift; stale entries become maintenance tasks.",
+    "Index re-archived to Zenodo on each version (new DOI), keeping prior versions citable."
+  ],
+  "output": "docs/refresh-process.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

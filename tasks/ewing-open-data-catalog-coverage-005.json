@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-coverage-005",
+  "title": "Source-family coverage verification (open vs controlled Ewing split: GEO/TARGET/Treehouse/cBioPortal/ICGC)",
+  "project": "ewing-open-data-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "data-governance",
+    "open-science"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Before tasking per-dataset documentation, the project must verify which named source families actually hold open-access Ewing data and which only hold controlled-access data. This resolves the open question of whether TARGET/GDC holds an open Ewing cohort at all. The output is a candidate shortlist, but listing a candidate never pre-approves it — each still requires its own gate-003 artifact. No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Produce a committed coverage report recording the open vs controlled Ewing split per source family and a ranked candidate shortlist of plausibly-open datasets.",
+  "acceptanceCriteria": [
+    "For each named source family (GEO, TARGET/GDC, Treehouse, cBioPortal, ICGC) record whether it holds open-access Ewing data, with cited evidence and the open vs controlled split.",
+    "Explicitly resolves the TARGET question (does an open Ewing cohort exist?); if not, recommends dropping TARGET from the source families with rationale recorded.",
+    "Output is a committed candidate shortlist (>= 6 plausibly-open Ewing datasets) ordered by a realistic adoption path, each still requiring its own gate-003 artifact before tasking."
+  ],
+  "output": "docs/source-coverage.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

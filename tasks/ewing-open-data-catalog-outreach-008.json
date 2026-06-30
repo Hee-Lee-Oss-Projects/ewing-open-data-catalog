@@ -1,0 +1,32 @@
+{
+  "id": "ewing-open-data-catalog-outreach-008",
+  "title": "Partner/sibling-project outreach + candidate dataset shortlist",
+  "project": "ewing-open-data-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer-research",
+    "ewing-sarcoma",
+    "open-data",
+    "genomics",
+    "open-science",
+    "community"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The catalog's per-task delivery need is unproven until a partner, advocacy org, repository, or sibling project agrees to adopt or consume it. This task opens outreach threads and records a candidate dataset shortlist aligned to the coverage report. It feeds partner-014 (securing a confirmed consumer). No partner is yet secured, so verifiedNeed is false and requestor is TO BE SECURED.",
+  "objective": "Open partner/sibling-project outreach threads and produce a committed shortlist of candidate consumers and datasets to pursue.",
+  "acceptanceCriteria": [
+    "At least one partner-outreach thread is opened with an advocacy org, repository, or sibling project (e.g. ewsr1-fli1-knowledge-graph), recorded with date and contact.",
+    "A candidate dataset shortlist (drawn from coverage-005) is recorded, ordered by realistic adoption path.",
+    "Each potential consumer's plausible consumption mechanism (index link / repo PR / sibling-project import) is noted; output licensed CC-BY-4.0."
+  ],
+  "output": "docs/outreach-shortlist.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
