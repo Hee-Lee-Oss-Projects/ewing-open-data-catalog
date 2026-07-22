@@ -4,9 +4,9 @@
 >
 > Standing label on every deliverable: **research metadata only — not medical advice.**
 
-## How these tasks map to Elyos
+## How these tasks map to Hee-Lee Oss
 
-Each task below becomes an Elyos **Task JSON** validated against
+Each task below becomes a Hee-Lee Oss **Task JSON** validated against
 `packages/schema/src/schemas.ts`. Field mapping:
 
 - `id` — stable slug ID from the tables (e.g. `ewing-open-data-catalog-template-002`).
@@ -267,9 +267,9 @@ steward identified for ongoing liaison.
     "Conflict-of-interest stance recorded: the reviewer must not be steered to shape inclusion toward any for-profit beneficiary."
   ],
   "resources": [
-    "C:\\code\\elyos\\planning\\projects\\ewing-open-data-catalog\\PLAN.md",
-    "C:\\code\\elyos\\docs\\good-deed-definition.md",
-    "C:\\code\\elyos\\planning\\ROADMAP.md",
+    "C:\\code\\hee-lee-oss\\planning\\projects\\ewing-open-data-catalog\\PLAN.md",
+    "C:\\code\\hee-lee-oss\\docs\\good-deed-definition.md",
+    "C:\\code\\hee-lee-oss\\planning\\ROADMAP.md",
     "Datasheets for Datasets (Gebru et al.)",
     "SPDX license list; Creative Commons CC0 / CC-BY 4.0"
   ],
@@ -296,7 +296,7 @@ steward identified for ongoing liaison.
 ## Generated task index
 
 Every backlog row above now has an executable, schema-valid `tasks/<id>.json` (validated against
-`packages/schema` taskSchema). The Elyos CLI executes these JSON files, not this Markdown.
+`packages/schema` taskSchema). The Hee-Lee Oss CLI executes these JSON files, not this Markdown.
 
 | ID | tasks/ file | Type | Deliverable | License |
 | --- | --- | --- | --- | --- |

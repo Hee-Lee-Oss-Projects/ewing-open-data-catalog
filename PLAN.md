@@ -46,7 +46,7 @@ named-reviewer gate. **No partner is yet secured; `verifiedNeed: false` across t
   fast and avoid wasting weeks on a dataset that turns out to be controlled-access or non-derivable.
 - **Patient-advocacy and rare-cancer foundations** that want a trustworthy, plain-language map of
   what open Ewing data exists and what can be done with it.
-- **Sibling Elyos projects** — directly `ewsr1-fli1-knowledge-graph`, `ewing-expression-reanalysis`,
+- **Sibling Hee-Lee Oss projects** — directly `ewsr1-fli1-knowledge-graph`, `ewing-expression-reanalysis`,
   `ewing-literature-corpus`, `ewing-single-cell-atlas` — which all need a vetted, license-clear list
   of source datasets before they begin. This catalog is their upstream dependency.
 - **The original data contributors** (patients, families, consortia) whose consented-for-research
@@ -62,7 +62,7 @@ beneficiary*, not merely produced.
 
 **Partner org.** TO BE SECURED. Candidate channels: rare-cancer / sarcoma patient-advocacy
 foundations; open-data repositories (Zenodo for self-publication of the index; dataset-repo PRs);
-research-data catalogs and "awesome-list"-style community resources; the sibling Elyos KG project as
+research-data catalogs and "awesome-list"-style community resources; the sibling Hee-Lee Oss KG project as
 an internal consumer. M0 includes explicit partner-outreach work; **no partner is assumed**.
 
 ## Goals and non-goals
@@ -77,7 +77,7 @@ an internal consumer. M0 includes explicit partner-outreach work; **no partner i
   named-reviewer gate.
 - Provide **source adapters** (GEO, cBioPortal, GDC/ICGC open tier) that pull metadata in the right
   shape so documentation is repeatable and cheap.
-- Hand a clean, structured feed of vetted datasets to sibling Elyos Ewing projects.
+- Hand a clean, structured feed of vetted datasets to sibling Hee-Lee Oss Ewing projects.
 
 **Non-goals**
 - We do **not** host, mirror, download in bulk, clean, transform, re-analyze, or republish any
@@ -130,7 +130,7 @@ URL/permalink/DOI, timestamp, completeness before/after). Acceptance per channel
   index entry — evidence = the live permalink or written confirmation.
 - **Dataset-repo / community-resource PR:** a merged PR adding the datasheet/metadata — evidence =
   the merge commit URL.
-- **Sibling-project consumption:** a sibling Elyos project imports the vetted entry — evidence = the
+- **Sibling-project consumption:** a sibling Hee-Lee Oss project imports the vetted entry — evidence = the
   referencing commit/issue. Self-reported or "submitted but unconfirmed" never counts as adopted.
 
 ## Scope
@@ -213,7 +213,7 @@ validators + source adapters + the index). It is not a data pipeline that moves 
 `specVersions {croissant, geoApi, cbioportalApi, gdcApi}`, `completenessScore {before, after}`,
 `disclaimer: "research metadata only — not medical advice"`.
 
-**Tech stack.** TypeScript, ESM, pnpm workspaces (Elyos conventions). Validators and adapters are
+**Tech stack.** TypeScript, ESM, pnpm workspaces (Hee-Lee Oss conventions). Validators and adapters are
 small Node packages with minimal dependencies. Documentation in Markdown + JSON/JSON-LD. The index
 is a versioned repo + static artifact, archived to Zenodo for a citable DOI. No runtime services;
 everything runs locally or in CI.
@@ -433,10 +433,10 @@ the filter and no candidate becomes a task until it passes.
   *metadata-only*; no bulk data download, no controlled-access access.
 - **Datasets:** specific open Ewing datasets — TO BE SELECTED via `coverage-005` + the gate; none
   assumed in scope yet.
-- **Sibling Elyos projects:** `ewsr1-fli1-knowledge-graph` (primary downstream consumer),
+- **Sibling Hee-Lee Oss projects:** `ewsr1-fli1-knowledge-graph` (primary downstream consumer),
   `ewing-expression-reanalysis`, `ewing-literature-corpus`, `ewing-single-cell-atlas`; and the
   pattern-sibling `open-data-datasheets` (gate/template reuse).
-- **Elyos pieces:** Task JSON schema (`packages/schema`), donated-lane CLI workspace/PR flow
+- **Hee-Lee Oss pieces:** Task JSON schema (`packages/schema`), donated-lane CLI workspace/PR flow
   (`packages/cli`), good-deed definition + refusal guardrails. No funded-lane/runner dependency
   (donated lane).
 
@@ -464,7 +464,7 @@ the filter and no candidate becomes a task until it passes.
   reaching a field requires authorization, the dataset is controlled → excluded.
 - **Secrets handling:** adapters use only public, unauthenticated metadata endpoints by default; no
   credentials. Any API token (e.g. higher GEO rate limits) is supplied by the human and never written
-  to logs, receipts, or committed files (Elyos rule).
+  to logs, receipts, or committed files (Hee-Lee Oss rule).
 - **PII / re-identification:** the dominant privacy concern is upstream genomic/clinical data.
   Handled by the access-tier + re-identification gate. We inspect aggregate metadata only, store
   nothing, commit no individual-level data, and halt on any signal.
@@ -502,11 +502,11 @@ the filter and no candidate becomes a task until it passes.
 
 ## References
 
-- Elyos work rules — `C:\code\elyos\CLAUDE.md`
-- Good Deed Definition + risk tiers — `C:\code\elyos\docs\good-deed-definition.md`
-- Cancer-track domain guardrails — `C:\code\elyos\planning\ROADMAP.md` (Track 8)
-- Task JSON schema — `C:\code\elyos\packages\schema\src\schemas.ts`
-- Pattern-sibling plan — `C:\code\elyos\planning\projects\open-data-datasheets\PLAN.md`
+- Hee-Lee Oss work rules — `C:\code\hee-lee-oss\CLAUDE.md`
+- Good Deed Definition + risk tiers — `C:\code\hee-lee-oss\docs\good-deed-definition.md`
+- Cancer-track domain guardrails — `C:\code\hee-lee-oss\planning\ROADMAP.md` (Track 8)
+- Task JSON schema — `C:\code\hee-lee-oss\packages\schema\src\schemas.ts`
+- Pattern-sibling plan — `C:\code\hee-lee-oss\planning\projects\open-data-datasheets\PLAN.md`
 - Datasheets for Datasets (Gebru et al., 2018/2021); Data/Model Cards
 - Croissant ML metadata format specification (MLCommons v1.0)
 - NCBI GEO / E-utilities; GDC API; cBioPortal web API; ICGC/ARGO data portal; UCSC Treehouse
@@ -578,7 +578,7 @@ here so the work is visible. Each item names the concrete change made (not a gen
 ## Review sign-off
 
 A completeness/correctness review of the revised plan + `TASKS.md` was performed against the
-PLAN_SPEC structure, the Elyos guardrails, and the Task JSON schema. Findings and resolutions:
+PLAN_SPEC structure, the Hee-Lee Oss guardrails, and the Task JSON schema. Findings and resolutions:
 
 - **All 17 required H2 sections present and in order**; metadata header present; Appendix A (25
   improvements, all applied) and this sign-off appended.
