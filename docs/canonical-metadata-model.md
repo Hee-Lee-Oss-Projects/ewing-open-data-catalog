@@ -1,53 +1,370 @@
-# Canonical Metadata Model: Ewing Sarcoma Open Data Catalog
+# Canonical Metadata Model for Biomedical Datasets
 
-**Disclaimer:** This document describes metadata specifications for research purposes only. Metadata contained herein is research metadata only — not medical advice. Use or interpretation of dataset information for clinical decision-making requires qualified professional review.
-
-**License:** CC-BY-4.0  
-**Specification Version:** 1.0  
+**Ewing Open Data Catalog Specification**  
+**Version:** 1.0  
 **Last Updated:** 2026-07-24  
-**Status:** Research metadata specification (requestor: TO BE SECURED)
+**License:** CC-BY-4.0
+
+---
+
+## Disclaimer
+
+**This document describes metadata standards and is research documentation only — not medical advice.** Datasets in this catalog are intended for research and educational use. Any clinical applications require independent expert validation, institutional review, and appropriate regulatory approval.
 
 ---
 
 ## Overview
 
-This document defines the canonical metadata model for the Ewing Sarcoma Open Data Catalog. Every dataset documented in the catalog must include metadata fields specified here, ensuring structural compatibility, license clarity, access-control verification, and re-identification risk assessment. The model prioritizes:
+This canonical metadata model establishes a standardized structure for describing biomedical datasets in the Ewing Open Data Catalog. The model ensures that every dataset is documented consistently, enabling researchers to discover data, assess suitability, understand provenance and governance, and combine datasets reliably.
 
-1. **Verifiable Access Tiers** — Every dataset explicitly declares open vs. controlled access with evidence URL
-2. **License Transparency** — Derivatives clause must be parseable from the license terms
-3. **Re-identification Safety** — Rare-disease cohort size and germline presence flagged
-4. **Molecular Provenance** — Ewing-specific annotations (driver fusions, tumor type, assay)
-5. **Audit Trail** — Version, retrieval date, and source publication recorded for every record
+The model captures three essential layers:
+1. **Dataset identity and location** — what it is and where to find it
+2. **Access, licensing, and governance** — how to use it legally and ethically
+3. **Scientific and risk profile** — what it contains and what researchers need to know
 
 ---
 
-## Field Specification
+## Complete Field Reference
 
-### Identity & Access
+### Core Identity
 
-#### `id` (required)
-**Type:** String (UUID or repository-unique identifier)  
-**Description:** Machine-readable unique identifier for the dataset within the catalog. If the dataset has a public accession (GEO, cBioPortal, ICGC), prefer that; otherwise mint a local UUID.  
-**Example:** `GEO:GSE24221`, `icgc:EWT-AU`, `catalog:ewing-ccle-001`  
-**Validation:** Must be unique across the catalog; no whitespace.
+**`id` (string, required)**
+- Unique persistent identifier for this dataset within the catalog
+- Format: `ewing-[institution]-[yyyy]-[dataset-descriptor]` (e.g., `ewing-bcm-2024-fusion-discovery`)
+- Must be stable across metadata revisions and used in citations
+- Validation: No spaces; alphanumeric and hyphens only
 
-#### `title` (required)
-**Type:** String  
-**Description:** Human-readable title of the dataset as it appears in the source repository, or a clear descriptive title if the source has none.  
-**Example:** `"Ewing Sarcoma RNA-seq Cohort: Children's Oncology Group"`, `"EWSR1-FLI1 Fusion Variants, ICGC ARGO"`  
-**Validation:** ≤250 characters; no HTML tags.
+**`title` (string, required)**
+- Human-readable dataset name; concise (≤100 characters), specific enough to distinguish from related datasets
+- Example: "RNA-seq from Ewing Sarcoma Cell Lines with EWSR1 Fusions"
+- Validation: ≤100 characters; must match or closely match repository title
 
-#### `accession` (required)
-**Type:** String  
-**Description:** Public repository accession code (GEO, cBioPortal study ID, ICGC project code, Zenodo record ID, etc.).  
-**Example:** `GSE24221`, `mskcc-10001`, `EWT-AU`, `zenodo.5000001`  
-**Validation:** Must resolve to the source repository; cite repository base URL in `provenance.consortiumPolicyUrl`.
+**`accession` (string, optional but recommended)**
+- External repository accession number if dataset is mirrored in GEO, dbGaP, EBI, or other repository
+- Format: `[repository]:[accession]` (e.g., `GEO:GSE123456`, `dbGaP:phs000456.v2.p1`)
+- Multiple accessions stored as array; enables researchers to find canonical version
+- Validation: Must be resolvable in the cited repository
 
-#### `repository` (required)
-**Type:** String  
-**Description:** Name and base URL of the source repository.  
-**Example:** `"NCBI GEO (https://www.ncbi.nlm.nih.gov/geo/)"`, `"cBioPortal (https://www.cbioportal.org/)"`  
-**Validation:** Must include both repository name and base URL.
+**`repository` (object, required)**
+- `url` (string): HTTP(S) URL where dataset files are accessible or where metadata is hosted
+- `type` (string, enum): `["dbgap", "geo", "arrayexpress", "hosted", "zenodo", "figshare", "cBioPortal", "local"]`
+- `format` (array): File formats available (e.g., `["BAM", "VCF", "CSV", "FASTQ"]`)
+- Validation: URL must be valid and accessible; type must match actual repository
+
+**`submitterOrConsortium` (object, required)**
+- `name` (string): Primary investigator, institution, or consortium name
+- `affiliation` (string): Institutional affiliation
+- `contactEmail` (string, optional): Point of contact for data questions
+- `orcid` (string, optional): ORCID identifier for individual submitter (format: XXXX-XXXX-XXXX-XXXX)
+- `consortium` (boolean): `true` if multi-institution effort; `false` if single lab
+- Validation: At least name and affiliation required; email must be valid format if provided
+
+### Access and Governance
+
+**`accessTier` (object, required)**
+- `tier` (string, enum): Access level classification
+  - **public**: No authentication required; data freely available
+  - **academic-login**: Requires academic institutional login/shibboleth
+  - **institutional**: Requires membership in specific institution(s)
+  - **restricted**: Requires IRB/ethics approval and data use agreement review
+  - **controlled**: Formal data access request process; human review required; may require institution sponsorship
+- `evidenceUrl` (string): URL to access request process, authentication page, or policy documentation
+- Validation: Tier must match actual repository restrictions; URL must point to access procedure
+
+**`license` (object, required)**
+- `id` (string, enum): SPDX license identifier (e.g., `CC-BY-4.0`, `CC0-1.0`, `ODC-BY-1.0`, `other`)
+- `url` (string): Full license text URL (e.g., https://creativecommons.org/licenses/by/4.0/)
+- `permitsDerivatives` (boolean): License allows derived works/modifications
+- `permitsCommercial` (boolean): License permits commercial use
+- `requiresAttribution` (boolean): Dataset must be cited in publications/products using the data
+- `snapshotRef` (string, optional): DOI or persistent URL if this metadata describes a specific data release/version
+- `dataUseConditions` (string, optional): Free-text restrictions beyond standard license (e.g., "restricted to Ewing sarcoma research", "contact PI for unpublished data")
+- Validation: License ID must be recognized SPDX identifier; URL must resolve to license text
+
+### Provenance and Lineage
+
+**`provenance` (object, required)**
+- `retrievedAt` (ISO 8601 datetime): When metadata was last validated/harvested (e.g., "2026-07-24T15:30:00Z")
+- `version` (string): Dataset version or release date (e.g., `v2.1`, `2026-Q2-release`, `20260724`)
+- `publicationPmidDoi` (array, optional): PubMed IDs or DOIs of publications describing this dataset
+  - Format: `["PMID:12345678", "DOI:10.1234/example.5678"]`
+  - Include original study publication and any re-analysis papers
+- `consortiumPolicyUrl` (string, optional): URL to publication/embargo policies if from consortium
+- `attribution` (object, optional):
+  - `generatedCredit` (string): How to cite the dataset in publications (narrative format)
+  - `standardCitation` (string): BibTeX or APA-formatted citation ready for copy/paste
+- Validation: retrievedAt must be valid ISO 8601 datetime; PMIDs/DOIs must resolve
+
+**`lineage` (object, optional)**
+- `duplicateOf` (string): If this dataset is a mirror/duplicate, ID of canonical version
+- `supersedes` (array, optional): IDs of older dataset versions this replaces; enables version tracking
+- `derivedFrom` (array, optional): IDs of datasets combined or used to create this one
+- `relatedDatasets` (array, optional): IDs of complementary or linked datasets in the catalog
+- Validation: All referenced dataset IDs must exist in catalog or be external identifiers
+
+### Re-identification Risk Assessment
+
+**`reidentification` (object, required)**
+- `riskLevel` (string, enum): `["minimal", "low", "moderate", "high"]` based on de-identification status and cohort characteristics
+  - **minimal**: Fully de-identified per HIPAA Safe Harbor, cell lines, or synthetic data; no unique identifiers
+  - **low**: De-identified with coded IDs; large cohort (n > 10,000); no rare disease markers
+  - **moderate**: Small cohort (n < 1,000) or rare disease; coded patient IDs present; or germline data present
+  - **high**: Identifiable or quasi-identifiable (names, medical record numbers); rare disease; small cohort; unique phenotypes
+- `basis` (string): Brief explanation of risk assessment methodology
+  - Example: "De-identified per HIPAA Safe Harbor; no unique identifiers; cell line identifiers only"
+  - Example: "Small cohort (n=47) with rare fusion; phenotype combination may be identifiable"
+- `smallCellsFlag` (boolean): `true` if n < 1,000 (re-identification risk increases with small cohorts; particularly important for rare cancers)
+- `germlinePresent` (boolean): `true` if dataset includes germline variants or constitutional DNA; research ethics and privacy implications
+- `notes` (string, optional): Additional privacy, ethical considerations, or consent restrictions
+- Validation: All fields required; basis must justify riskLevel assignment; consistency checks between smallCellsFlag and actual cohort size
+
+### Molecular Annotation
+
+**`molecular` (object, optional, but recommended for genomic datasets)**
+- `tumorType` (string or array): Primary cancer type(s) represented (e.g., `"Ewing sarcoma"`, `["Ewing", "PNET"]`)
+- `driverFusion` (array, optional): Recurrent gene fusions in dataset (e.g., `["EWSR1-FLI1", "EWSR1-ERG"]`)
+  - Include only fusions confirmed in the dataset; leave empty if not applicable
+- `assay` (array, required if molecular data present): Assay types/technologies included
+  - Options: `["RNA-seq", "WGS", "WES", "SNP-array", "qPCR", "Microarray", "Immunohistochemistry", "Flow cytometry", "other"]`
+  - Specify which assays are primary vs. supporting data
+- `cohortSizeAggregate` (integer): Total number of samples (tumors, cell lines, experiments, etc.) across all assays
+- `sourcePublication` (string, optional): Citation or PMID of original study if data published first elsewhere
+- Validation: tumorType must match molecular content; cohortSizeAggregate must be ≥1
+
+### Data Dictionary and Structure
+
+**`fields` (array of objects, optional but recommended)**
+Each object describes a column/variable in the data files:
+```json
+{
+  "name": "sample_id",
+  "type": "string",
+  "description": "Unique sample identifier",
+  "required": true,
+  "example": "EWING-001",
+  "units": null
+}
+```
+- `name` (string): Column/variable name as it appears in raw data files
+- `type` (string): Data type — "string", "integer", "float", "boolean", "date" (YYYY-MM-DD), "enum"
+- `description` (string): What this variable represents; how it was measured
+- `required` (boolean): Is this field mandatory for every record?
+- `example` (any): Representative value from the dataset
+- `units` (string, optional): Units of measurement if numeric (e.g., "mmol/L", "years")
+- `categories` (array, optional): For enum types, list allowed values
+
+**`knownIssues` (array of objects, optional)**
+Document data quality issues, limitations, or caveats researchers should know:
+```json
+{
+  "issue": "Missing values in TP53 status for 12 samples",
+  "affectedSamples": 12,
+  "recommended_action": "Contact submitter; may be technical dropout",
+  "resolved_in_version": null
+}
+```
+- `issue` (string): Clear description of the problem
+- `affectedSamples` (integer): Number of samples/records affected
+- `recommended_action` (string): How users should handle the issue
+- `resolved_in_version` (string, optional): If fixed, which version; null if ongoing
+
+### Metadata Quality
+
+**`specVersions` (array)**
+Track which metadata specification version(s) this dataset conforms to:
+- Format: `["canonical-model-v1.0"]`
+- Enables catalog to handle schema evolution and backward compatibility
+
+**`completenessScore` (object, optional)**
+Self-assessment of metadata completeness:
+- `before` (0–100): Completeness percentage when dataset was first submitted
+- `after` (0–100): Completeness percentage after metadata curation
+- `curatedBy` (string, optional): Name of curator or curation team
+- Helps track metadata improvement and identify datasets needing more documentation
+
+**`examples` (array of objects)**
+Include at least one worked example of how this metadata is used:
+```json
+{
+  "label": "Example query",
+  "description": "Finding all EWSR1-FLI1 RNA-seq datasets",
+  "query": "molecular.driverFusion contains 'EWSR1-FLI1' AND molecular.assay contains 'RNA-seq'"
+}
+```
+- `label` (string): Short name for the example
+- `description` (string): What this example demonstrates
+- `query` (string): Catalog search query or data query code
+- Include 1–3 examples showing discovery, filtering, and analysis patterns
+
+### Disclaimer
+
+**`disclaimer` (string, required)**
+Standard disclaimer text must include:
+> "This dataset is provided for research and educational purposes only. This metadata is research documentation, not medical advice. Any clinical applications require independent expert validation, institutional review, and appropriate regulatory approval."
+
+---
+
+## Minimal vs. Complete Records
+
+### Minimal Required Fields (for every dataset)
+- `id`, `title`, `repository`, `submitterOrConsortium`, `accessTier`, `license`
+- `provenance`, `reidentification`, `specVersions`, `disclaimer`
+
+### Recommended Additional Fields (to maximize discoverability and usability)
+- `accession`, `lineage`, `molecular` (if genomic), `fields`, `knownIssues`
+- `completenessScore`, `examples`
+
+### Complete Record Example (JSON)
+```json
+{
+  "id": "ewing-bcm-2024-cell-lines-rnaseq",
+  "title": "RNA-seq from Ewing Sarcoma Cell Lines",
+  "accession": "GEO:GSE234567",
+  "repository": {
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234567",
+    "type": "geo",
+    "format": ["FASTQ", "BAM", "CSV"]
+  },
+  "submitterOrConsortium": {
+    "name": "Dr. Jane Smith",
+    "affiliation": "Baylor College of Medicine",
+    "contactEmail": "jsmith@bcm.edu",
+    "orcid": "0000-0001-2345-6789",
+    "consortium": false
+  },
+  "accessTier": {
+    "tier": "public",
+    "evidenceUrl": "https://www.ncbi.nlm.nih.gov/geo/"
+  },
+  "license": {
+    "id": "CC0-1.0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "permitsDerivatives": true,
+    "permitsCommercial": true,
+    "requiresAttribution": false,
+    "snapshotRef": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234567",
+    "dataUseConditions": "Public domain; no restrictions"
+  },
+  "provenance": {
+    "retrievedAt": "2026-07-24T15:30:00Z",
+    "version": "2.1",
+    "publicationPmidDoi": ["PMID:35678901"],
+    "consortiumPolicyUrl": null,
+    "attribution": {
+      "generatedCredit": "Smith et al. (2024). RNA-seq from Ewing Sarcoma Cell Lines. Gene Expression Omnibus GSE234567.",
+      "standardCitation": "Smith, Jane, et al. (2024). RNA-seq from Ewing Sarcoma Cell Lines. Gene Expression Omnibus. Accession GSE234567."
+    }
+  },
+  "lineage": {
+    "duplicateOf": null,
+    "supersedes": ["ewing-bcm-2024-cell-lines-rnaseq-v2.0"],
+    "derivedFrom": null,
+    "relatedDatasets": ["ewing-bcm-2024-ewing-patient-rnaseq"]
+  },
+  "reidentification": {
+    "riskLevel": "minimal",
+    "basis": "Established cell lines; no patient data; no germline; no re-identification risk",
+    "smallCellsFlag": false,
+    "germlinePresent": false,
+    "notes": "Cell line authentication via STR profiling"
+  },
+  "molecular": {
+    "tumorType": "Ewing sarcoma",
+    "driverFusion": ["EWSR1-FLI1"],
+    "assay": ["RNA-seq"],
+    "cohortSizeAggregate": 15,
+    "sourcePublication": "PMID:35678901"
+  },
+  "fields": [
+    {
+      "name": "sample_id",
+      "type": "string",
+      "description": "Unique sample identifier",
+      "required": true,
+      "example": "EWING-A673-01"
+    },
+    {
+      "name": "cell_line",
+      "type": "string",
+      "description": "Ewing sarcoma cell line name",
+      "required": true,
+      "example": "A673"
+    }
+  ],
+  "knownIssues": [
+    {
+      "issue": "Adapter contamination in 2 samples",
+      "affectedSamples": 2,
+      "recommended_action": "Trim adapters before alignment",
+      "resolved_in_version": "2.1"
+    }
+  ],
+  "specVersions": ["canonical-model-v1.0"],
+  "completenessScore": {
+    "before": 60,
+    "after": 95,
+    "curatedBy": "Dr. Jane Smith"
+  },
+  "examples": [
+    {
+      "label": "Query: Find EWSR1-FLI1 RNA-seq datasets",
+      "description": "Filtering by fusion and assay type",
+      "query": "molecular.driverFusion contains 'EWSR1-FLI1' AND molecular.assay contains 'RNA-seq'"
+    }
+  ],
+  "disclaimer": "This dataset is provided for research and educational purposes only. This metadata is research documentation, not medical advice. Any clinical applications require independent expert validation, institutional review, and appropriate regulatory approval."
+}
+```
+
+---
+
+## Implementation Notes
+
+### For Dataset Submitters
+- Complete all **required** fields; optional fields provide additional context
+- Use standardized enumerations (lists of allowed values) where specified
+- For `molecular.*` fields, consult the data's actual assays and cohort composition
+- If re-identification risk is unclear, default to conservative `"moderate"` and document basis thoroughly
+- Test that your dataset ID is unique before submission
+
+### For Data Stewards / Curators
+- Validate that `id` is unique across the entire catalog
+- Cross-check `accession` with actual repository records to confirm resolve
+- Confirm `license` matches data's actual terms by reading the license text
+- Update `provenance.retrievedAt` whenever metadata is curated or updated
+- Track `completenessScore` before/after to guide future improvements
+- Document any `knownIssues` or data quality concerns clearly and honestly
+
+### For Researchers Using the Catalog
+- Check `accessTier` and follow the specified `evidenceUrl` for access procedures
+- Read the full `license` before downloading or republishing data
+- Note `reidentification.riskLevel` and `smallCellsFlag` when deciding if dataset meets your IRB/ethics requirements
+- Cite using `provenance.attribution.standardCitation`
+- Report data quality issues to the contact listed in `submitterOrConsortium`
+
+---
+
+## Versioning and Future Updates
+
+This metadata model is version **1.0**. The specification may evolve; future versions will be announced in the catalog changelog. Datasets referencing `"canonical-model-v1.0"` in `specVersions` conform to this specification. Backward-compatibility guarantees:
+- Required fields will remain required
+- New fields will be added as optional
+- Enumerations may expand but existing values will not change meaning
+
+---
+
+## References
+
+- **Datasheets for Datasets**: Gebru et al. (2019). https://arxiv.org/abs/1803.09010
+- **FAIR Data Principles**: Wilkinson et al. (2016). Scientific Data 3, 160018. https://www.nature.com/articles/sdata201618
+- **NIH Data Management and Sharing Plan Requirements**: https://sharing.nih.gov/data-management-and-sharing-policy
+- **HIPAA Safe Harbor De-identification Standard**: https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/
+- **SPDX License List**: https://spdx.org/licenses/
+- **Ewing Sarcoma Genomics Resources**: https://www.cancer.gov/, Kids First DRC, TARGET-Ewing
+
+---
+
+**Questions?** Contact the Ewing Open Data Catalog team. This specification is community-driven; contributions and feedback are welcome via the catalog GitHub repository.
 
 #### `submitterOrConsortium` (required)
 **Type:** String  

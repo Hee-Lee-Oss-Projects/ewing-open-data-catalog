@@ -1,6 +1,6 @@
-# Datasheet Template: Ewing Sarcoma Dataset Documentation
+# Datasheet Template: Ewing Open Data Catalog
 
-**Disclaimer:** This document template provides metadata specifications for research purposes only. Metadata and dataset information contained herein is research metadata only — not medical advice. Use or interpretation of dataset information for clinical decision-making requires qualified professional review.
+**Research Documentation — Not Medical Advice**
 
 **License:** CC-BY-4.0  
 **Template Version:** 1.0  
@@ -8,46 +8,848 @@
 
 ---
 
-## Instructions for Contributors
+## How to Use This Template
 
-This template guides documentation of Ewing sarcoma datasets for the Ewing Sarcoma Open Data Catalog. Use it to complete a **datasheet** — a structured set of questions about your dataset's provenance, composition, consent, limitations, and intended uses.
+This template implements the **Datasheets for Datasets** framework (Gebru et al., 2019) adapted for biomedical research data in the Ewing Open Data Catalog. It provides a structured format to document:
 
-**What this is:** A documentation template describing dataset metadata, provenance, and known limitations.  
-**What this is NOT:** A data submission form. Data is not submitted here; only metadata, pointers to data, and access information.
+- **What** the dataset contains and who created it
+- **Why** it was created and how it was collected
+- **How** to access it and use it legally
+- **What** limitations and known issues users should know
+- **Whether** it's suitable for their research questions
 
-**Before starting:**
-1. Identify the dataset you're documenting (GEO series, cBioPortal study, Zenodo record, etc.)
-2. Have access to the original source documentation (paper, README, repository)
-3. Answer every question below; if truly not applicable, write "N/A — reason"
-4. Submit the completed datasheet as a Markdown file to the catalog PR
-
-**Output License:** This datasheet is licensed CC-BY-4.0. You may reuse and adapt it for other datasets.
+**Important Disclaimers:**
+- This is a *documentation template*, not the data itself. It describes metadata standards and is **research documentation only — not medical advice**.
+- Datasets in this catalog are for research and educational use. Any clinical applications require independent expert validation, institutional review, and appropriate regulatory approval.
+- Use this template to create datasheets for any biomedical or open science dataset. The datasheet is licensed CC-BY-4.0; the data's license is specified separately within.
 
 ---
 
-## Part 1: Motivation & Purpose (Datasheets-for-Datasets Part A)
+## Instructions for Dataset Submitters
 
-### A1. Motivation & Dataset Curation
+1. **Identify your dataset** — Locate the dataset you're documenting (GEO series, cBioPortal study, institutional repository, Zenodo record, published data supplement, etc.)
+2. **Gather source documentation** — Have access to: original publications, repository records, Methods section, data README, ethical review approvals
+3. **Complete all sections** — Fill in Sections A–J below. If a section truly doesn't apply, write "N/A — [brief reason]"
+4. **Include worked examples** — Provide at least one filled-in example showing typical metadata values (see Section K)
+5. **Review for accuracy** — Double-check facts against source publications and repository records
+6. **Submit to catalog** — Submit the completed datasheet (as Markdown) to the Ewing catalog via GitHub PR
 
-**Question:** Why was this dataset created or curated? What problem does it solve or what question does it address?
+---
 
-**Guidance:** Reference the original study, author intent, or consortium mission. For re-published datasets (e.g., GEO hosted, cBioPortal integrated), note the original purpose and the rationale for including it in the Ewing catalog.
+## Section A: Motivation and Purpose
 
-**Example Response:**
-> This dataset compiles RNA-seq from 47 Ewing sarcoma tumors treated at Children's Oncology Group sites 2010–2015. The original study (PMID: 29438695) identified EWSR1-FLI1-specific transcriptional signatures associated with prognosis. The dataset is included in the Ewing catalog as a reference transcriptome for fusion-positive Ewing sarcomas and to enable cross-cohort survival and molecular outcome studies.
+### A.1 — Why was this dataset created or curated?
 
-**Your Response:**
+Describe the scientific question, research goal, or clinical context that motivated the creation or inclusion of this dataset in the Ewing Open Data Catalog.
+
+**For original datasets:**
+- What research question does it address?
+- What clinical or biological problem does it illuminate?
+- What gap in available data does it fill?
+
+**For re-published/curated datasets:**
+- What was the original study's purpose?
+- Why is this dataset included in the Ewing catalog specifically?
+- Does it represent a new aggregation or analysis?
+
+**Example:**
+> This dataset contains RNA-seq profiles from five Ewing sarcoma cell lines with EWSR1-FLI1 fusion, collected to identify fusion-specific transcriptional signatures and potential therapeutic targets. The study was performed at Baylor College of Medicine's Center for Pediatric Cancer. These cell lines are included in the Ewing catalog as foundational reference transcriptomes for fusion-driven Ewing sarcomaand as benchmark data for algorithm development.
+
+**Your response:**
 ```
 [Provide motivation and curation rationale here]
 ```
 
 ---
 
-### A2. Composition & Instances
+### A.2 — Who collected/created the data, and when?
 
-**Question:** What data does the dataset contain (individuals, samples, records) and how many?
+Specify the individuals, institutions, and timeframe involved in data generation.
 
-**Guidance:** Specify the number of unique patients/individuals, samples, observations, or records. For multi-source datasets, itemize by source.
+- Names and institutional affiliations of investigators
+- Date range of data collection
+- Date of data analysis/processing completion
+- Date of submission to public repository (if applicable)
+
+**Example:**
+> Dr. Jane Smith and colleagues at Baylor College of Medicine's Center for Pediatric Cancer. Cell culture and RNA extraction occurred from January 2023 to August 2024. RNA-seq was performed in-house on an Illumina NovaSeq platform. Bioinformatic analysis and quality control were completed by October 2024. Data submitted to GEO in November 2024 (accession GSE234567).
+
+**Your response:**
+```
+[Provide collection timeframe and team information here]
+```
+
+---
+
+### A.3 — Is this dataset part of a larger study or consortium?
+
+Name any parent studies, research consortia, or collaborative projects.
+
+**Examples:**
+- TARGET-Ewing (National Cancer Institute)
+- Kids First Data Resource Center (National Institutes of Health)
+- Treehouse Pediatric Cancer Initiative (UC Santa Cruz)
+- Children's Oncology Group (COG) Studies
+- ICGC Ewing Sarcoma Project
+
+Include relevant consortium publications, data release policies, or embargo periods.
+
+**Example:**
+> This dataset is part of the Kids First Data Resource Center (Kids First DRC) initiative funded by the NIH Office of the Director and the National Cancer Institute. Consortium data release policy requires that researchers be credited in publications. See https://kidsfirstdrc.org/policies for full terms.
+
+**Your response:**
+```
+[Provide consortium/study affiliation information here]
+```
+
+---
+
+### A.4 — What are related or predecessor datasets?
+
+Document lineage, versioning, and complementary data.
+
+- **Newer versions** — If this is a new release, which version(s) does it supersede?
+- **Related cohorts** — Are there companion datasets (same study, different assays)?
+- **Derived datasets** — Does this combine or extend other published data?
+- **Public datasets** — If mirrored in GEO, cBioPortal, or Zenodo, note the primary repository
+
+**Example:**
+> - **Parent study:** `ewing-bcm-2024-ewing-patient-rnaseq` (patient-derived tumor samples; same lab, complementary data)
+> - **Related dataset:** `ewing-chop-2023-fusion-proteomics` (same five cell lines; proteomics data)
+> - **Supercedes:** `ewing-bcm-2023-cell-lines-v1` (older version; use v2.0 or later for new analyses)
+> - **Primary repository:** GEO GSE234567 (this is the authoritative copy; all updates posted there first)
+
+**Your response:**
+```
+[Provide lineage and related dataset information here]
+```
+
+---
+
+## Section B: Composition and Data Structure
+
+### B.1 — What do the rows/instances represent?
+
+Describe the unit of observation in the dataset.
+
+- Each row is a **[what?]** — sample, patient, tumor, cell line, experiment, etc.
+- How are rows organized? (by patient? by timepoint? by assay?)
+- What makes a row unique?
+
+**Example:**
+> Each row represents one RNA-seq library from an Ewing sarcoma cell line. Five cell lines (A673, TC-71, EW8, TC-32, RH1) were cultured and sequenced in biological triplicate (15 libraries total). Each library is uniquely identified by sample_id (e.g., EWING-A673-01).
+
+**Your response:**
+```
+[Describe the unit of observation here]
+```
+
+---
+
+### B.2 — How many instances/rows are there?
+
+Provide total counts and breakdowns if applicable.
+
+**Example:**
+> - **Total libraries:** 15 (5 cell lines × 3 biological replicates)
+> - **Total reads:** ~675M raw reads (45M per library average)
+> - **Aligned reads:** ~630M (93% alignment rate)
+
+**Your response:**
+```
+[Provide instance/row counts here]
+```
+
+---
+
+### B.3 — Data Dictionary: What are all the columns/variables?
+
+Create a table documenting every column in the dataset:
+
+| Column Name | Data Type | Description | Required? | Example | Units |
+|---|---|---|---|---|---|
+| `sample_id` | string | Unique identifier | Yes | EWING-A673-01 | N/A |
+| `cell_line` | string | Ewing cell line name | Yes | A673 | N/A |
+| `replicate` | integer | Biological replicate | Yes | 1 | count |
+| `rna_extraction_date` | date | When RNA was extracted | Yes | 2024-01-15 | YYYY-MM-DD |
+| `library_kit` | string | RNA-seq library prep kit | Yes | NEXTflex | N/A |
+| `sequencer` | string | Sequencing platform | Yes | Illumina NovaSeq 6000 | N/A |
+| `raw_reads` | integer | Number of raw sequencing reads | No | 45,000,000 | count |
+| `aligned_reads` | integer | Reads aligned to GRCh38 | No | 42,000,000 | count |
+| `fusion_confirmed` | boolean | EWSR1-FLI1 confirmed by qPCR | Yes | true | Yes/No |
+| `quality_flag` | enum | QC status | Yes | PASS | PASS, REVIEW, FAIL |
+| `notes` | string | Free-text comments | No | Slight adapter contamination | N/A |
+
+**Your response:**
+```
+[Provide data dictionary table here]
+```
+
+---
+
+### B.4 — Are there natural splits or subsets of the data?
+
+Describe how the data can be partitioned (e.g., for machine learning train/test split, temporal splits, subgroup analyses).
+
+**Example:**
+> No pre-defined splits. For machine learning applications, we recommend:
+> - **Stratified by cell line:** Train on 4 lines, hold out 1 line as validation (avoids within-cell-line overfitting)
+> - **By assay quality:** Separate high-quality (quality_flag = PASS) from review-level samples for conservative analyses
+
+**Your response:**
+```
+[Describe natural splits or suggested partitioning here]
+```
+
+---
+
+### B.5 — Are there known data quality issues or gaps?
+
+Document any problems, incompleteness, or anomalies users should know about.
+
+| Issue | Affected Samples | Severity | Recommended Action | Resolved? |
+|---|---|---|---|---|
+| RNA integrity below ideal | EWING-TC-32-02 | Low | Flag in analyses; consider excluding from QC-strict subsets | No |
+| Adapter contamination | EWING-TC-32-02, EWING-RH1-03 | Low | Trim adapters before alignment | Yes (v2.1) |
+| Missing quality data | 3 samples | Low | Contact submitter for RIN values | Partial |
+
+**Example:**
+> - **Sample EWING-TC-32-02:** RNA integrity number (RIN) = 7.1 (below ideal 8.0); included but should be flagged in downstream analyses
+> - **Samples EWING-RH1-01 and EWING-RH1-03:** ~5% adapter contamination in raw FASTQ; pre-trimming required
+> - **Overall:** No missing values in core columns; all libraries successfully sequenced
+
+**Your response:**
+```
+[Describe known issues, missing values, and quality concerns here]
+```
+
+---
+
+## Section C: Collection and Preprocessing
+
+### C.1 — How was the data acquired? (Methods for each data type)
+
+Provide detailed methods for data collection and generation. Include:
+- **Sample source** — Where did samples come from? (cell lines, patients, tissues)
+- **Collection protocol** — How were samples collected, preserved, or cultured?
+- **Extraction/preparation** — RNA extraction, protein preparation, etc.
+- **Measurement technology** — Sequencing platform, microarray, assay kit, etc.
+- **Analysis pipeline** — Alignment, normalization, quality control steps
+
+**Example (RNA-seq):**
+> **Cell culture:** Five Ewing sarcoma cell lines (A673, TC-71, EW8, TC-32, RH1) maintained in RPMI 1640 + 10% FBS at 37°C, 5% CO₂. Cultures tested negative for mycoplasma (Lonza MycoAlert) and maintained at passages 8–15.
+>
+> **RNA extraction:** Total RNA from ~1×10^7 cells using TRIzol (Invitrogen). Quality assessed by Agilent Bioanalyzer; RIN ≥7.5 required.
+>
+> **Library prep & sequencing:** NEXTflex RNA-seq kit; 1 μg total RNA per sample. Illumina NovaSeq 6000; 2×150 bp paired-end; targeting 45M reads/library.
+>
+> **Bioinformatics pipeline:**
+> - Adapter trimming: Trim Galore (cutadapt defaults)
+> - Alignment: STAR v2.7.10a to GRCh38
+> - Quantification: featureCounts v2.0.1 (Subread)
+> - Normalization: edgeR v3.38.0 (CPM; log2(CPM + 1))
+> - Quality control: Removal of genes with CPM < 1 across all samples
+
+**Your response:**
+```
+[Provide detailed methods here]
+```
+
+---
+
+### C.2 — Over what time period was data collected?
+
+Specify the timeline for sample collection, processing, and analysis.
+
+**Example:**
+> Sample collection: January 2023 – August 2024  
+> RNA extraction and library prep: January 2024 – August 2024  
+> Sequencing: August 2024 – September 2024  
+> Bioinformatic processing and QC: September 2024 – October 2024  
+> Repository submission: November 2024
+
+**Your response:**
+```
+[Provide collection and processing timeline here]
+```
+
+---
+
+### C.3 — Were any preprocessing or normalization steps applied?
+
+Document all computational transformations, including software versions.
+
+**Example:**
+> **Raw to aligned:**
+> 1. Quality control (FastQC)
+> 2. Adapter trimming (Trim Galore v0.6.10)
+> 3. Alignment to GRCh38 (STAR v2.7.10a)
+> 4. Alignment QC (samtools v1.15, Picard Tools v2.27)
+>
+> **Aligned to counts:**
+> 1. Quantification with featureCounts v2.0.1 (Subread)
+> 2. Count matrix assembly (R v4.2.0)
+>
+> **Normalization for downstream:**
+> 1. Counts per million (CPM)
+> 2. Log2 transformation: log2(CPM + 1)
+> 3. Filtering: Remove genes with CPM < 1 in all samples (reduces noise)
+
+All software versions and parameters documented in lab GitHub: [link]
+
+**Your response:**
+```
+[Describe preprocessing and normalization steps here]
+```
+
+---
+
+### C.4 — Were ethical review or informed consent procedures followed?
+
+Describe IRB approvals, consent models, and ethical compliance.
+
+**For cell line data:**
+> This study uses established commercial cell lines (ATCC, DSMZ) that are widely available research materials. No human subjects research approval required. Cell line authentication performed by STR profiling (IDEXX Laboratories).
+
+**For patient-derived data:**
+> IRB approval: [Institution IRB #XXXX-XXXX]  
+> Informed consent: Broad research consent (allows secondary research)  
+> Restrictions: No consent for commercial use; contact PI before clinical translation  
+> De-identification: Coded patient IDs; no PHI; meets HIPAA Safe Harbor
+
+**Your response:**
+```
+[Describe ethical review and consent procedures here]
+```
+
+---
+
+## Section D: Provenance and Attribution
+
+### D.1 — What is the original source of each data instance?
+
+Explain how each sample, record, or observation came into being.
+
+**For original datasets:**
+> Samples were derived from five commercially available Ewing sarcoma cell lines:
+> - A673 (ATCC CRL-1598)
+> - TC-71 (ATCC CRL-1983)
+> - EW8 (ATCC CRL-2141)
+> - TC-32 (DSMZ ACC-379)
+> - RH1 (ATCC CRL-7684)
+
+**For curated/aggregated datasets:**
+> This dataset aggregates RNA-seq from three public repositories:
+> - GEO (47 samples from GSE12345)
+> - cBioPortal (23 samples from TARGET-Ewing)
+> - Zenodo (15 samples from institutional submission)
+
+**Your response:**
+```
+[Describe the source and provenance of data here]
+```
+
+---
+
+### D.2 — Has this dataset been used in prior publications or studies?
+
+Cite any publications where this exact data or subsets were analyzed.
+
+**Example:**
+> This is newly generated data. However, related transcriptomic studies in the same cell lines:
+> - Smith et al. (2023). "Fusion-specific signatures in Ewing sarcoma." *Cancer Res.* PMID:35678901
+> - Johnson et al. (in press). "EWSR1-FLI1 dependency profiling." Preprint: https://doi.org/...
+
+**Your response:**
+```
+[List prior publications using this data here]
+```
+
+---
+
+### D.3 — Are there known limitations on reproducibility?
+
+Describe factors affecting whether analyses can be reproduced.
+
+**Example:**
+> 1. **Cell line drift:** Commercial lines accumulate mutations over passages. Data represent passages 8–15; re-authentication recommended for extended culture.
+> 2. **Single platform:** Sequenced on one instrument type (Illumina NovaSeq). Batch effects from other platforms (PacBio, 10x) should be evaluated before meta-analysis.
+> 3. **Manual processing:** RNA extraction and library prep are manual; residual technical variation across replicates expected.
+> 4. **No code release:** Bioinformatic scripts available upon request (not published yet).
+
+**Your response:**
+```
+[Describe reproducibility limitations here]
+```
+
+---
+
+## Section E: Uses and Licensing
+
+### E.1 — What is this dataset intended for?
+
+Describe primary and secondary use cases.
+
+**Example:**
+> **Primary use:** Identify EWSR1-FLI1 fusion-specific transcriptional signatures as targets for therapeutic development in Ewing sarcoma.
+>
+> **Secondary uses:**
+> - Benchmark for Ewing sarcoma RNA-seq analysis pipelines
+> - Algorithm validation (fusion detection, copy-number analysis)
+> - Educational examples for genomics courses
+> - Cross-study cohort comparisons
+
+**Your response:**
+```
+[Describe intended uses here]
+```
+
+---
+
+### E.2 — What are the access restrictions and license terms?
+
+Specify how the dataset can be used, modified, and redistributed.
+
+| Aspect | Details |
+|---|---|
+| **License** | CC0-1.0 (Public Domain Dedication) |
+| **License URL** | https://creativecommons.org/publicdomain/zero/1.0/ |
+| **Permits derivatives** | Yes |
+| **Permits commercial use** | Yes |
+| **Requires attribution** | No (appreciated, but not required) |
+| **Access tier** | Public (no authentication) |
+| **Data use restrictions** | None |
+| **Consent restrictions** | N/A (cell lines) |
+| **Publication policy** | None |
+
+**Example (for restricted data):**
+> License: CC-BY-4.0  
+> Access: Controlled (requires approved data access request)  
+> Permits derivatives: Yes, but with attribution  
+> Permits commercial: No  
+> Consent restrictions: Broad research use only; no clinical translation without PI approval  
+> Publication policy: 12-month embargo from data release
+
+**Your response:**
+```
+[Specify license and access restrictions here]
+```
+
+---
+
+### E.3 — Is this dataset suitable for [machine learning / clinical decision support / regulatory submissions]?
+
+Explicitly assess suitability for different use contexts.
+
+**Machine learning:**
+> Yes, suitable for:
+> - Fusion detection algorithm training (balanced positive examples)
+> - Transfer learning from larger single-cell RNA-seq datasets
+> - Batch-effect modeling across platforms
+>
+> Limitations: Small sample size (n=5 lines); cell line-specific biases may not generalize to primary tumors
+
+**Clinical decision support:**
+> No. This is cell line data, not patient-derived. Cannot be used to support clinical claims. Any clinical application requires validation in patient cohorts with appropriate ethical oversight.
+
+**Regulatory submissions (FDA, EMA):**
+> Not recommended as primary evidence. Cell line data can support exploratory science but not clinical efficacy or safety claims. Would require preclinical/clinical bridging studies.
+
+**Your response:**
+```
+[Assess suitability for your use context here]
+```
+
+---
+
+### E.4 — Has this dataset been misused, and are there explicit restrictions?
+
+Flag if data have been used inappropriately or require explicit disclaimers.
+
+**Example:**
+> No known misuse. However, we recommend that any publication using these data include an explicit statement: "This analysis is based on cell line data and requires validation in patient-derived samples and/or clinical cohorts before any clinical translation."
+
+**Your response:**
+```
+[Document any prior misuse or required disclaimers here]
+```
+
+---
+
+## Section F: Distribution and Access
+
+### F.1 — How and where can users access the dataset?
+
+Specify repository, formats, download procedures, and file sizes.
+
+| Aspect | Details |
+|---|---|
+| **Primary repository** | Gene Expression Omnibus (GEO) |
+| **Accession** | GSE234567 |
+| **URL** | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234567 |
+| **Data formats** | Raw FASTQ; aligned BAM; count matrix (CSV/TSV) |
+| **Total size** | ~80 GB (FASTQ); ~3 GB (BAM); ~50 MB (counts) |
+| **Download method** | FTP (GEO); Aspera; public links; SRA-toolkit |
+| **Mirror repositories** | Zenodo [DOI:...] (backup copy); figshare [record ID] |
+
+**Your response:**
+```
+[Specify access locations and procedures here]
+```
+
+---
+
+### F.2 — Are there version or snapshot considerations?
+
+Document versioning, which version to cite, and errata.
+
+**Example:**
+> **Current version:** v2.1 (released July 2024)  
+> **Recommended version:** v2.1 (v2.0 contains alignment bug in 2 samples; corrected in v2.1)  
+> **Citation:** Use accession GSE234567 + version tag in publications  
+> **Errata:** v2.0 BAM files for EWING-TC-32-02 and EWING-RH1-03 contain adapter contamination; corrected BAM files in v2.1
+
+**Your response:**
+```
+[Describe versioning and snapshot information here]
+```
+
+---
+
+### F.3 — Will the dataset be updated or maintained?
+
+Specify whether dataset is static or evolving.
+
+**Example:**
+> **Status:** Archived (static after publication). No ongoing updates planned. Original repository (GEO) guarantees long-term preservation. Contact Dr. Jane Smith (jsmith@bcm.edu) for questions.
+
+**Your response:**
+```
+[Specify maintenance status here]
+```
+
+---
+
+## Section G: Known Issues and Limitations
+
+### G.1 — What are the key limitations?
+
+Honestly document restrictions on applicability and generalizability.
+
+**Example:**
+> 1. **Limited genetic diversity:** Five cell lines from unknown genetic ancestry. Not suitable for population genetics or ancestry-specific analyses.
+> 2. **Cell line artifacts:** Established lines accumulate mutations over passages. Data represent a point-in-time snapshot (passage 8–15, 2024).
+> 3. **Bulk RNA resolution:** No single-cell analysis. Cell-type-specific signals are averaged; validation recommended via flow cytometry or immunohistochemistry.
+> 4. **No germline data:** Only somatic mutations in tumor cells; no normal controls.
+> 5. **No copy-number calls:** Variant annotations not provided; users must call variants de novo if needed.
+
+**Your response:**
+```
+[Document key limitations here]
+```
+
+---
+
+### G.2 — Are there data quality issues?
+
+Detail problems, anomalies, or concerns.
+
+| Issue | Affected Data | Severity | Recommended Action | Status |
+|---|---|---|---|---|
+| Adapter contamination | 2 samples (EWING-TC-32-02, RH1-03) | Low | Trim adapters before use | Fixed in v2.1 |
+| Low RNA integrity | 1 sample (EWING-TC-32-02, RIN=7.1) | Low | Flag in analyses | Ongoing |
+
+**Your response:**
+```
+[Describe data quality issues here]
+```
+
+---
+
+### G.3 — Are there gaps in data or documentation?
+
+Honestly note what's missing.
+
+**Example:**
+> - Somatic variant calls not provided; users must call variants de novo if needed
+> - Exome sequencing not performed; only transcript-level data available
+> - Metadata on passage number not linked to sequencing results; passage effects on expression not formally analyzed
+> - No single-cell data; cell-type composition averaged
+
+**Your response:**
+```
+[Document gaps and missing data here]
+```
+
+---
+
+## Section H: Molecular Annotation (for Biomedical/Genomic Datasets)
+
+### H.1 — What disease or condition does this dataset represent?
+
+Describe the biology and disease context.
+
+**Example:**
+> Ewing sarcoma (ES), a malignant bone sarcoma of childhood and young adulthood. All five cell lines carry the recurrent EWSR1-FLI1 fusion translocation t(11;22)(q24;q12), which is pathognomonic for classical Ewing sarcoma. This fusion encodes an oncogenic EWS-FLI1 transcription factor that drives the disease.
+
+**Your response:**
+```
+[Describe the disease or biological context here]
+```
+
+---
+
+### H.2 — What are key molecular features?
+
+Summarize the genetic and molecular landscape.
+
+| Feature | Value |
+|---|---|
+| **Primary condition** | Ewing sarcoma |
+| **Recurrent fusion(s)** | EWSR1-FLI1 (t(11;22)) |
+| **Secondary mutations** | TP53 loss in 3/5 lines (detected by WES) |
+| **Assay type(s)** | RNA-seq (bulk total RNA) |
+| **Reference genome** | GRCh38.p14 (hg38) |
+| **Cohort size** | 5 cell lines; 15 RNA-seq libraries |
+
+**Your response:**
+```
+[Describe molecular features and mutations here]
+```
+
+---
+
+### H.3 — Special considerations: germline, somatic, or population-level?
+
+Flag considerations for genetic/privacy analysis.
+
+**Example:**
+> **Germline:** No germline data (cell lines only). Not suitable for population genetics or ancestry analysis.
+>
+> **Somatic:** Somatic mutations present but not formally annotated in this release. Variant calls available upon request.
+>
+> **Population:** Five cell lines of unknown genetic background. All established commercial stocks. Biases toward passage-accumulated mutations.
+
+**Your response:**
+```
+[Describe germline/somatic/population considerations here]
+```
+
+---
+
+## Section I: Consent and Ethics
+
+### I.1 — What consent model was used?
+
+Describe how participants (if any) consented to data use.
+
+**For patient data:**
+> **Informed consent:** Broad research use consent (allows secondary research without re-contacting participants)  
+> **Restrictions:** Excludes commercial use without additional approval  
+> **De-identification:** Coded patient IDs; no direct identifiers; meets HIPAA Safe Harbor  
+> **Reconsent:** Not required for research use; required for commercial applications
+
+**For cell lines:**
+> N/A (commercial cell lines; no human participants)
+
+**Your response:**
+```
+[Describe consent model and restrictions here]
+```
+
+---
+
+### I.2 — What are the ethical or privacy considerations?
+
+Flag any special considerations for responsible data use.
+
+**Example:**
+> - **Cell line authentication:** All lines authenticated by STR profiling; documented in lab records.
+> - **No re-identification risk:** Established commercial lines; no patient data; no unique identifiers.
+> - **Responsible research practices:** Recommend acknowledgment of original study in publications.
+
+**Your response:**
+```
+[Document ethical and privacy considerations here]
+```
+
+---
+
+## Section J: Citation and Attribution
+
+### J.1 — How should users cite this dataset?
+
+Provide standard citation format(s).
+
+**Example Citation:**
+```
+Smith, Jane, et al. (2024). RNA-seq from Ewing Sarcoma Cell Lines with EWSR1-FLI1 Fusion. 
+Gene Expression Omnibus. Accession GSE234567. 
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234567
+```
+
+**For publications:**
+> Smith, J., Johnson, M., Brown, K., & Lee, S. (2024). RNA-seq from Ewing Sarcoma Cell Lines with EWSR1-FLI1 Fusion. *Gene Expression Omnibus*. GSE234567. Retrieved from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234567
+
+**For code/data repositories:**
+> Smith et al. (2024). RNA-seq from Ewing Sarcoma Cell Lines. GEO GSE234567. https://doi.org/[dataset-doi]
+
+**Your response:**
+```
+[Provide citation format(s) here]
+```
+
+---
+
+### J.2 — What is the disclaimer for clinical use?
+
+Include standard research-only disclaimer.
+
+**Standard disclaimer:**
+> **This dataset is provided for research and educational purposes only.** This metadata is research documentation, not medical advice. Datasets in the Ewing Open Data Catalog are for research and educational use. Any clinical applications require:
+> 1. Independent expert validation
+> 2. Institutional review board (IRB) or research ethics committee approval
+> 3. Appropriate regulatory approval (e.g., FDA for clinical studies)
+>
+> Users assume full responsibility for compliance with applicable laws, regulations, and ethical standards in their jurisdiction. Cell line data do not represent patient biology and should not be used to support clinical claims without patient-derived validation.
+
+**Your response:**
+```
+[Confirm or customize the disclaimer here]
+```
+
+---
+
+## Section K: Worked Example(s)
+
+### K.1 — Canonical Metadata Model Example (JSON)
+
+Provide a complete, synthetic example conforming to the canonical metadata model specification.
+
+**Example:**
+```json
+{
+  "id": "ewing-bcm-2024-cell-lines-rnaseq",
+  "title": "RNA-seq from Ewing Sarcoma Cell Lines with EWSR1-FLI1 Fusion",
+  "accession": "GEO:GSE234567",
+  "repository": {
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234567",
+    "type": "geo",
+    "format": ["FASTQ", "BAM", "CSV"]
+  },
+  "submitterOrConsortium": {
+    "name": "Dr. Jane Smith",
+    "affiliation": "Baylor College of Medicine, Center for Pediatric Cancer",
+    "contactEmail": "jsmith@bcm.edu",
+    "orcid": "0000-0001-2345-6789",
+    "consortium": false
+  },
+  "accessTier": {
+    "tier": "public",
+    "evidenceUrl": "https://www.ncbi.nlm.nih.gov/geo/"
+  },
+  "license": {
+    "id": "CC0-1.0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "permitsDerivatives": true,
+    "permitsCommercial": true,
+    "requiresAttribution": false,
+    "snapshotRef": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234567"
+  },
+  "provenance": {
+    "retrievedAt": "2026-07-24T15:30:00Z",
+    "version": "2.1",
+    "publicationPmidDoi": ["PMID:35678901"],
+    "consortiumPolicyUrl": null,
+    "attribution": {
+      "generatedCredit": "Smith et al. (2024). RNA-seq from Ewing Sarcoma Cell Lines with EWSR1-FLI1 Fusion. Gene Expression Omnibus GSE234567.",
+      "standardCitation": "Smith, Jane, et al. (2024). RNA-seq from Ewing Sarcoma Cell Lines with EWSR1-FLI1 Fusion. Gene Expression Omnibus. Accession GSE234567."
+    }
+  },
+  "lineage": {
+    "duplicateOf": null,
+    "supersedes": ["ewing-bcm-2024-cell-lines-rnaseq-v2.0"],
+    "derivedFrom": null,
+    "relatedDatasets": ["ewing-bcm-2024-ewing-patient-rnaseq"]
+  },
+  "reidentification": {
+    "riskLevel": "minimal",
+    "basis": "Established cell lines; no patient data; no germline; commercial research materials",
+    "smallCellsFlag": false,
+    "germlinePresent": false,
+    "notes": "STR profiling confirms cell line identity"
+  },
+  "molecular": {
+    "tumorType": "Ewing sarcoma",
+    "driverFusion": ["EWSR1-FLI1"],
+    "assay": ["RNA-seq"],
+    "cohortSizeAggregate": 15,
+    "sourcePublication": "PMID:35678901"
+  },
+  "specVersions": ["canonical-model-v1.0"],
+  "completenessScore": {
+    "before": 60,
+    "after": 95,
+    "curatedBy": "Dr. Jane Smith"
+  },
+  "disclaimer": "This dataset is provided for research and educational purposes only. This metadata is research documentation, not medical advice. Any clinical applications require independent expert validation, institutional review, and appropriate regulatory approval."
+}
+```
+
+---
+
+### K.2 — Sample Data Table (First 10 rows of count matrix)
+
+**Synthetic example of typical data structure:**
+
+| gene_id | gene_name | EWING-A673-01 | EWING-A673-02 | EWING-A673-03 | EWING-TC-71-01 | EWING-TC-71-02 | ... |
+|---|---|---|---|---|---|---|---|
+| ENSG00000000003 | TSPAN6 | 145 | 167 | 142 | 201 | 198 | ... |
+| ENSG00000000005 | TNMD | 0 | 0 | 0 | 0 | 0 | ... |
+| ENSG00000000419 | DPM1 | 892 | 1056 | 845 | 1123 | 1087 | ... |
+| ENSG00000000457 | SCYL3 | 42 | 53 | 48 | 67 | 71 | ... |
+| ENSG00000000460 | C1orf112 | 201 | 245 | 198 | 267 | 289 | ... |
+| ENSG00000000461 | FUCA2 | 0 | 0 | 1 | 0 | 2 | ... |
+| ... (continuing for ~20,000 genes) | ... | ... | ... | ... | ... | ... | ... |
+
+---
+
+## Section L: Compliance Checklist
+
+Before submitting your datasheet, verify:
+
+- [ ] All required fields in Section A completed (motivation, team, dates)
+- [ ] Section B fully describes the data (rows, counts, columns)
+- [ ] Section C includes detailed methods and preprocessing pipeline
+- [ ] Section D documents provenance and prior uses
+- [ ] Section E specifies license and access restrictions clearly
+- [ ] Section F provides exact URLs and download instructions
+- [ ] Section G honestly documents limitations and known issues
+- [ ] Section H includes molecular annotation (for genomic data)
+- [ ] Section I documents consent and ethical review
+- [ ] Section J specifies citation format and includes disclaimer
+- [ ] Section K includes at least one complete worked example
+- [ ] All URLs and accessions have been verified/tested
+- [ ] Disclaimer includes "research documentation only — not medical advice"
+- [ ] License is specified (data license and this template's CC-BY-4.0)
+- [ ] No confidential or identifiable information included
+
+---
+
+## References
+
+- **Gebru, T., et al. (2019).** Datasheets for Datasets. *arXiv preprint arXiv:1803.09010*. https://arxiv.org/abs/1803.09010
+- **Wilkinson, M. D., et al. (2016).** The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data*, 3, 160018. https://www.nature.com/articles/sdata201618
+- **NIH Data Management and Sharing Policy.** https://sharing.nih.gov/data-management-and-sharing-policy
+- **GA4GH Data Interchange Formats.** https://www.ga4gh.org/
+
+---
+
+**Document Version:** 1.0  
+**License:** CC-BY-4.0  
+**Last Updated:** 2026-07-24
+
+Questions or feedback? Contact the Ewing Open Data Catalog team or submit an issue to the catalog repository.
 
 **Example Response:**
 > 47 tumor samples (47 unique patients); 1 sample per patient. Data includes: (i) RNA-seq reads aligned to hg38 with gene-level TPM counts (top 15,000 genes); (ii) clinical metadata (age, gender, primary tumor site, metastases at diagnosis, treatment response); (iii) fusion gene status (FISH-confirmed or inferred from RNA-seq). No normal/healthy controls included.
