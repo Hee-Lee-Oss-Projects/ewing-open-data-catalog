@@ -993,13 +993,103 @@ Below is a **worked example** of a complete datasheet for a synthetic dataset, d
 
 ---
 
+## Completion Guide & Troubleshooting
+
+### Before You Submit
+
+**Question: How do I know if my dataset is eligible for this catalog?**
+- Dataset must have **open-access tier** (freely available, no DUA or ethics approval required)
+- License must **permit derivatives** (CC-BY-4.0, CC0-1.0, MIT, Apache-2.0, etc. accepted; non-commercial and custom licenses require review)
+- Dataset must **relate to Ewing sarcoma** (primary or significant subset)
+- **Germline variants at individual level** automatically excluded
+- If cohort **k < 5**, dataset is flagged for high re-identification risk and requires additional justification
+
+**Question: What if my dataset has controlled access (dbGaP, EGA, etc.)?**
+Answer: Controlled-access datasets are EXCLUDED from this catalog per policy. Focus on public/open-access datasets.
+
+**Question: How do I fill in Part 11 (Canonical Metadata Record)?**
+1. Start with the blank template provided (lines 597–658)
+2. Use the worked example (lines 838–992) as a reference for structure and format
+3. Match the JSON structure exactly; omit fields only if truly not applicable (set to `null`)
+4. Validate JSON syntax before submitting (use online validator or `python -m json.tool`)
+
+**Question: What's the difference between this Markdown template and the JSON record?**
+Answer: Markdown (this file) is human-readable documentation; JSON (Part 11) is machine-readable metadata. Both must be completed and consistent.
+
+**Question: How do I assess re-identification risk?**
+Use this flowchart:
+```
+Is germline data at individual level included?
+  → YES: riskLevel = "excluded" [REJECT]
+  → NO: Continue...
+
+Is cohort size k < 5?
+  → YES: riskLevel = "high", smallCellsFlag = true [FLAG for review]
+  → NO: Continue...
+
+Is cohort size 5 ≤ k < 50 (or rare disease with phenotype linkage)?
+  → YES: riskLevel = "moderate", smallCellsFlag = true [CAUTION; release with documentation]
+  → NO: Continue...
+
+Is cohort k ≥ 50 or data is aggregate/summary only?
+  → YES: riskLevel = "low", smallCellsFlag = false [PREFERRED]
+```
+
+### Validation Checklist Before Gate Review
+
+- [ ] All 10 major parts completed (A1–A3, B1–B4, C1–C3, D1–D2, E1–E2, F1–F2, G1–G2, M1–M4, I1–I4, L1)
+- [ ] JSON in Part 11 is syntactically valid (no quote/bracket mismatches)
+- [ ] No "N/A" values except where explicitly noted as acceptable (e.g., `publicationPmidDoi: "N/A"` is OK)
+- [ ] All URLs in `evidenceUrl`, `consortiumPolicyUrl`, and examples are resolvable (test with browser)
+- [ ] Re-identification risk level justified with specific cohort details (not generic language)
+- [ ] Disclaimer includes exact phrase: "research metadata only — not medical advice"
+- [ ] License is CC-BY-4.0, CC0-1.0, or otherwise permits derivatives
+- [ ] Completeness score `.after` ≥ 90 (target: 95+)
+- [ ] Example/worked section clearly labeled as synthetic or public (not real patient identifiers)
+- [ ] Molecular section confirms Ewing sarcoma relevance (tumorType, driverFusion, assay populated)
+
+### Common Issues & Fixes
+
+| Issue | Solution |
+|-------|----------|
+| "URL doesn't resolve" | Use the canonical source URL (e.g., GEO record page, not a temporary mirror). Test with `curl -I` or browser. |
+| "JSON syntax error" | Paste JSON into https://jsonlint.com/ to identify quote/bracket issues. |
+| "Cohort size vs. smallCellsFlag mismatch" | If k < 5, `smallCellsFlag` MUST be `true`. If k ≥ 5, `smallCellsFlag` MUST be `false`. Mismatch = REJECT. |
+| "License not recognized" | Use SPDX license ID (https://spdx.org/licenses/) if available. If custom, write full name and link to license text. |
+| "Disclaimer text wrong" | Copy the exact disclaimer from `canonical-metadata-model.md` section "disclaimer" field. |
+| "Fields table incomplete" | Every column (name, type, units, allowedValues, nullable, description, caveats) must be filled. If N/A, write "null" or "N/A — reason". |
+
+---
+
+## Reference: Ewing Sarcoma Context
+
+**Why this catalog exists:**
+Ewing sarcoma (ES) is a rare, aggressive pediatric bone tumor driven by chromosome translocations (e.g., t(11;22) EWSR1-FLI1). Survival has improved to ~70% 5-year event-free survival in high-income countries, but prognosis remains poor, especially for metastatic cases and adults. Open-access genomic data (RNA-seq, exome, WGS) enables:
+- Identification of fusion-specific transcriptional drivers
+- Discovery of therapeutic vulnerabilities
+- Cross-cohort outcome prediction
+- International collaboration on rare-disease biology
+
+This catalog centralizes metadata for publicly available ES datasets to accelerate research and reduce redundancy.
+
+**Key Ewing driver fusions:**
+- **EWSR1-FLI1** (~85%): t(11;22)(q24;q12)
+- **EWSR1-ERG** (~10%): t(21;22)(q22;q12)
+- **Rare fusions** (~5%): EWSR1-E1AF, EWSR1-ZSG, others
+
+**Re-identification risk in rare diseases:**
+Ewing sarcoma (~500 new cases/year in U.S.) is rare enough that combination of fusion status + age + primary site + outcome may enable re-identification via cross-reference with published literature, disease registries, or institutional records. Caution is advised in phenotype-genotype correlation studies.
+
+---
+
 ## Submission & Next Steps
 
 1. **Complete all sections** (A1–A3, B1–B4, C1–C3, D1–D2, E1–E2, F1–F2, G1–G2, M1–M4, I1–I4, L1) for your dataset.
 2. **Fill in the canonical metadata JSON** at the end of Part 11 with your dataset's information.
 3. **Validate** the JSON against the canonical metadata model specification (`docs/canonical-metadata-model.md`).
-4. **Submit** as a Markdown file (this template) or JSON record via pull request to the repository.
-5. **Gate review:** Catalog team will verify access tier, license, re-identification risk, and completeness score before publishing.
+4. **Run through the Validation Checklist** (above) and confirm all items pass.
+5. **Submit** this completed Markdown file or the JSON record via pull request to the repository.
+6. **Gate review:** Catalog team will verify access tier, license, re-identification risk, completeness score, and URL resolution before publishing. Expect 5–10 business day turnaround.
 
 ---
 
@@ -1008,3 +1098,5 @@ Below is a **worked example** of a complete datasheet for a synthetic dataset, d
 **Last Updated:** 2026-07-24
 
 *For questions or feedback on this template, please open a GitHub issue or pull request in the Ewing Sarcoma Open Data Catalog repository.*
+
+**Conformance Note:** This template and all completed datasheets MUST satisfy the acceptance criteria defined in `.hee-lee-oss/TASK.md` and validate against `docs/canonical-metadata-model.md` before publication.
