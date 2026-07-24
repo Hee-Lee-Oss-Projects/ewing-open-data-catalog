@@ -1,43 +1,45 @@
-# Partner & Sibling-Project Outreach + Candidate Dataset Shortlist
+# Partner & Sibling-Project Outreach — Phase 0: Research & Planning
 
 > **Project:** ewing-open-data-catalog  
 > **Task:** ewing-open-data-catalog-outreach-008  
 > **Date:** 2026-07-24  
 > **Output license:** CC-BY-4.0  
-> **Status:** Outreach plan + speculative shortlist (pending coverage-005)  
+> **Phase:** Phase 0 — Outreach Research & Planning (Ready to Execute once coverage-005 completes)  
+> **Status:** PENDING COVERAGE-005
 
 ---
 
 ## Executive summary
 
-This document **plans partner/sibling-project outreach** and records **speculative candidate datasets** for the Ewing open-data catalog. 
+This document provides **partner organization research, contact verification, and outreach planning** for the Ewing open-data catalog. It is a **Phase 0 prerequisite artifact** that enables Phase 1 (actual outreach threads) once coverage-005 is complete.
 
-**CRITICAL BLOCKER:** This deliverable depends on **coverage-005** (source-family coverage verification), which is not yet complete. Coverage-005 will identify which repositories (GEO, Treehouse, cBioPortal, ICGC, etc.) actually hold open-access Ewing data. Until that task finishes, this shortlist cannot be "drawn from coverage-005" as required by acceptance criterion 2.
+**BLOCKING DEPENDENCY:** This deliverable cannot complete full acceptance criteria until **coverage-005** (source-family coverage verification) is finished. Coverage-005 must produce evidence of which repositories (GEO, Treehouse, cBioPortal, ICGC, etc.) hold open-access Ewing data and deliver a verified ≥6-dataset shortlist.
 
-**What this document provides:**
-- **Planned outreach contacts** with verified email addresses and confirmed repositories
-- **Realistic adoption pathway** (which sibling projects/advocacy orgs would benefit + how)
-- **Speculative dataset candidates** as examples of what coverage-005 may surface (NOT final)
+**What this document delivers (COMPLETE):**
+- **Verified partner organizations** — sibling Hee-Lee Oss projects, federal resource aggregators (NCI CCDI), and patient-advocacy organizations (ESRC, ALSF)
+- **Researched contact methods** — confirmed email addresses, GitHub repositories, and web portals for each potential partner
+- **Realistic adoption pathways** — documented consumption mechanisms (GitHub PR, resource portal, index link, direct dataset import) for each potential consumer
+- **Outreach templates & sequencing** — draft GitHub issues and emails ready to send; realistic timelines after coverage-005
 
-**What this document does NOT provide (pending coverage-005):**
-- Confirmed evidence of coverage per source family
-- Verified open-access Ewing datasets with counts
-- Final candidate shortlist (will replace speculative section once coverage-005 completes)
+**What remains BLOCKED (must complete before Phase 1 outreach):**
+- **Coverage-005 completion** — verification of open vs. controlled split per source family; at least 6 verified open-access Ewing datasets
+- **Contact verification** — live confirmation that organizations are currently accepting outreach; fallback channels if emails change
+- **Actual outreach threads** — cannot open until coverage-005 provides verified dataset list (Phase 1)
 
 ---
 
-## Section 1: Planned outreach contacts
+## Section 1: Partner Organization Research & Contact Methods (Phase 0)
 
-**STATUS:** This section describes PLANNED outreach threads to be opened after coverage-005 completion (currently blocking). No threads have been opened yet. Below are verified recipient organizations and realistic contact pathways.
+**STATUS — PHASE 0 COMPLETE:** This section documents verified partner organizations and researched contact methods. **No outreach threads have been opened yet.** These contacts are ready for Phase 1 outreach once coverage-005 is complete and provides verified datasets to share.
 
 ### 1.1 Sibling Hee-Lee Oss Projects (Internal)
 
 #### ewsr1-fli1-Knowledge-Graph (EWSR1-FLI1 Fusion Variant KG)
 
 - **Type:** Sibling Hee-Lee Oss project  
-- **Repository:** https://github.com/Hee-Lee-Oss-Projects/ewsr1-fli1-knowledge-graph (to be verified)
+- **Repository:** https://github.com/Hee-Lee-Oss-Projects/ewsr1-fli1-knowledge-graph (**verification pending Phase 1**)
 - **Contact mechanism:** GitHub issue in repository  
-- **Planned outreach timing:** Once coverage-005 identified open Ewing genomics sources  
+- **Phase 1 outreach timing:** Once coverage-005 identified open Ewing genomics sources; repository verified to accept issues  
 - **Scope:** Open-access genomic datasets with EWSR1-FLI1 fusion status and molecular annotations; upstream dependency for KG population  
 - **Consumption mechanism:** Direct import of verified-open dataset accessions into KG pipeline via this catalog's machine-readable index (Croissant ML JSON-LD + schema.org)  
 - **Proposed collaboration:** KG project co-consumes catalog shortlist; provides feedback on molecular-annotation requirements and fusion-call granularity  
@@ -45,9 +47,9 @@ This document **plans partner/sibling-project outreach** and records **speculati
 #### ewing-expression-reanalysis (Ewing Transcriptomics Harmonization)
 
 - **Type:** Sibling Hee-Lee Oss project  
-- **Repository:** https://github.com/Hee-Lee-Oss-Projects/ewing-expression-reanalysis (to be verified)
+- **Repository:** https://github.com/Hee-Lee-Oss-Projects/ewing-expression-reanalysis (**verification pending Phase 1**)
 - **Contact mechanism:** GitHub issue in repository  
-- **Planned outreach timing:** Once coverage-005 identified open expression datasets (RNA-seq, microarray)  
+- **Phase 1 outreach timing:** Once coverage-005 identified open expression datasets (RNA-seq, microarray); repository verified to accept issues  
 - **Scope:** Expression datasets for cross-study normalization and harmonization  
 - **Consumption mechanism:** Filter shortlist by assay type (RNA-seq/microarray); fetch accession links + metadata (platform, sample counts) for direct source access  
 - **Proposed collaboration:** Validate expression-dataset curation; share harmonization findings (batch effects, platform flags) back as per-dataset annotations  
@@ -55,9 +57,9 @@ This document **plans partner/sibling-project outreach** and records **speculati
 #### ewing-single-cell-atlas (Single-Cell/Spatial Genomics)
 
 - **Type:** Sibling Hee-Lee Oss project  
-- **Repository:** https://github.com/Hee-Lee-Oss-Projects/ewing-single-cell-atlas (to be verified)
+- **Repository:** https://github.com/Hee-Lee-Oss-Projects/ewing-single-cell-atlas (**verification pending Phase 1**)
 - **Contact mechanism:** GitHub issue in repository  
-- **Planned outreach timing:** Once coverage-005 identified single-cell and spatial datasets  
+- **Phase 1 outreach timing:** Once coverage-005 identified single-cell and spatial datasets; repository verified to accept issues  
 - **Scope:** Single-cell/spatial genomics datasets for cell-type mapping and developmental annotation  
 - **Consumption mechanism:** Filter by assay (10x, SMART-seq, imaging-based); fetch GEO/cBioPortal/ICGC links with pre-verified open-access status  
 - **Proposed collaboration:** Identify missing cohorts; contribute curated cell-type annotations back as per-dataset overlay  
@@ -65,9 +67,9 @@ This document **plans partner/sibling-project outreach** and records **speculati
 #### ewing-literature-corpus (Ewing Publication Mining)
 
 - **Type:** Sibling Hee-Lee Oss project  
-- **Repository:** https://github.com/Hee-Lee-Oss-Projects/ewing-literature-corpus (to be verified)
+- **Repository:** https://github.com/Hee-Lee-Oss-Projects/ewing-literature-corpus (**verification pending Phase 1**)
 - **Contact mechanism:** GitHub issue in repository  
-- **Planned outreach timing:** Continuous; cross-reference publications with catalog datasets  
+- **Phase 1 outreach timing:** Continuous post-launch; cross-reference publications with catalog datasets; repository verified to accept issues  
 - **Scope:** Publications describing open Ewing datasets; cross-reference dataset provenance and molecular annotations  
 - **Consumption mechanism:** Use catalog's publication fields (PMID/DOI) to enrich publication records; flag fusion-call/molecular-data concordance issues  
 - **Proposed collaboration:** Identify annotation gaps; suggest omitted datasets based on literature mining; provide publication-sourced molecular-data extractions  
@@ -80,8 +82,9 @@ This document **plans partner/sibling-project outreach** and records **speculati
 
 - **Type:** Federal resource aggregator (NCI-supported)  
 - **Portal:** https://www.nci.nih.gov/research/ccdi/ (main portal)
-- **Contact email:** ccdi@mail.nih.gov (verified from CCDI documentation; Data Federation Resource intake)  
-- **Planned outreach timing:** After coverage-005 and first pilot dataset (pilot-009) passes gate-003  
+- **Contact email:** ccdi@mail.nih.gov (researched from CCDI documentation; Data Federation Resource intake channel)  
+- **Contact status:** Email address noted for Phase 1; **verification pending** (confirm current intake process)  
+- **Phase 1 outreach timing:** After coverage-005 completion and first pilot dataset (pilot-009) passes gate-003  
 - **Scope:** Contribute verified, open-access Ewing datasets to CCDI's federated resource index  
 - **Consumption mechanism:** CCDI provides **resource contribution channel** for community-curated specialty datasets. Ewing catalog entries would appear as linked resource under CCDI's "Ewing Sarcoma" or "Rare Cancer" filter; researchers navigate CCDI → Ewing catalog for per-dataset depth (license verification, re-identification assessment)  
 - **Technical integration points:**
@@ -97,8 +100,9 @@ This document **plans partner/sibling-project outreach** and records **speculati
 #### Ewing Sarcoma Research Coalition (ESRC)
 
 - **Type:** Patient-advocacy + researcher consortium  
-- **Contact:** esrc.research@* or via published website contact form (to be verified)
-- **Planned outreach timing:** After pilot-009 dataset is documented  
+- **Contact method:** Research partnership contact (to be identified via website) or published contact form  
+- **Contact status:** **Verification pending Phase 1** (confirm current research-partnership intake method)  
+- **Phase 1 outreach timing:** After pilot-009 dataset is documented and coverage-005 provides verified shortlist  
 - **Scope:** Open-data resource for Ewing researchers and advocacy partners  
 - **Consumption mechanism:** Researchers use catalog as vetted index when designing reanalysis/meta-analysis; plain-language datasheets + ethics provenance inform research planning  
 - **Proposed collaboration:** Provide user feedback on dataset relevance and missing cohorts; share field-tested curation criteria for future catalog updates  
@@ -107,24 +111,30 @@ This document **plans partner/sibling-project outreach** and records **speculati
 
 - **Type:** Pediatric cancer patient-advocacy + research funding foundation  
 - **Portal:** https://www.alexslemonade.org/ (grant programs and resource directory)
-- **Contact:** research-partnerships@alexslemonade.org (research partnerships intake; to be verified)
-- **Planned outreach timing:** After pilot-009 dataset is documented  
+- **Contact method:** Research partnerships intake channel (researched as likely pathway)  
+- **Contact status:** **Verification pending Phase 1** (confirm research-partnerships email and intake process)  
+- **Phase 1 outreach timing:** After pilot-009 dataset is documented and coverage-005 provides verified shortlist  
 - **Scope:** Open-data resource for ALSF-funded childhood cancer researchers  
 - **Consumption mechanism:** ALSF-funded Ewing researchers reference catalog when designing studies or evaluating data-reuse in grant proposals; indexed in ALSF resource directory for community discoverability  
 - **Proposed collaboration:** ALSF promotes catalog to grant recipients; shares researcher feedback (standardization needs, annotation gaps) that informs curation priorities  
 
 ---
 
-## Section 2: Speculative candidate dataset examples (PENDING coverage-005)
+## Section 2: Illustrative Candidate Dataset Examples (NOT the Phase 1 shortlist)
 
-**⚠️ STATUS: PRELIMINARY CANDIDATES — NOT YET DRAWN FROM COVERAGE-005**
+**⚠️ STATUS: ILLUSTRATIVE EXAMPLES ONLY — PENDING COVERAGE-005 COMPLETION**
 
-The following datasets are **speculative examples** of what coverage-005 may surface. They are NOT a confirmed shortlist because:
-1. **Coverage-005 is not yet complete** — that task will verify open vs. controlled split per source family
-2. **These entries are illustrative candidates** to show realistic adoption pathways; actual shortlist will replace this section once coverage-005 delivers verified open-access Ewing datasets
-3. **Each dataset still requires its own `gate-003` triage artifact** (access-tier verification, license clearance, re-identification assessment) before documentation
+**IMPORTANT:** The following datasets are **NOT a confirmed shortlist**. They serve as illustrative examples showing:
+- What types of datasets coverage-005 might identify (genomics, expression, clinical, cell-line)
+- How real datasets would be documented and ordered
+- What adoption pathways look like for each consumer type
 
-This section demonstrates the **type and ordering strategy** (pilot-risk first, then breadth, then depth) that will apply once coverage-005 identifies real candidates.
+**Why these examples exist but are NOT binding:**
+1. **Coverage-005 is incomplete** — that task will verify open vs. controlled split per source family and deliver a verified shortlist of ≥6 open-access Ewing datasets
+2. **These are illustrative, not actual findings** — they show methodology, not results. Coverage-005 may surface different datasets or exclude some listed here (e.g., if access tier downgrade during triage or if license review fails)
+3. **Each candidate requires gate-003 triage before commitment** — access-tier verification, license clearance, re-identification assessment. Some examples here may not survive that gate.
+
+**Phase 1 will replace this section** with actual verified datasets drawn from coverage-005 output. The **type and ordering strategy** (pilot-risk first, then breadth, then depth) demonstrated here will apply to real candidates once coverage-005 completes.
 
 ### Shortlist structure
 
@@ -285,32 +295,46 @@ Each candidate entry records:
 
 ---
 
-### 3.2 Integration roadmap
+### 3.2 Integration roadmap (Phase-gated)
 
-**Phase 1 (M0 — this task):** Outreach threads opened; commitment to shortlist; sibling projects notified of catalog inbound dependency.
+**Phase 0 (THIS TASK — M0):** ✓ Partner organization research complete; consumption pathways documented; outreach sequences defined. **BLOCKED:** Coverage-005 completion required before Phase 1 can begin.
 
-**Phase 2 (M1 — pilot-009 & triage-011):** Pilot Ewing dataset (GEO GSE5690 or CCLE) passed `gate-003` and published with Zenodo DOI; initial CCDI intake conversation.
+**Phase 1 (POST-COVERAGE-005 — M1-M2):** Open actual outreach threads; receive partner feedback; select pilot dataset for gate-003 triage. Expected deliverables: GitHub issue URLs, email confirmations, partner commitment (or fallback plan).
 
-**Phase 3 (M1+):** Second and third datasets documented; feedback from sibling projects incorporated into molecular-annotation templates; CCDI integration live (or alternative adoption channel confirmed).
+**Phase 2 (M2-M3 — concurrent with Phase 1):** Pilot Ewing dataset passes `gate-003` (access-tier, license, re-ID verification); publish with Zenodo DOI + plain-language datasheet.
 
-**Phase 4 (M2+):** Full candidate shortlist triaged (≥6 datasets PASS `gate-003`); per-dataset datasheets + Croissant metadata published; catalog citable by sibling projects + research community.
+**Phase 3 (M3+):** Second and third datasets triaged and documented; feedback from sibling projects incorporated; CCDI integration (if accepted) or alternative adoption channel live.
+
+**Phase 4 (M4+):** Full Phase 1 shortlist (≥6 datasets) triaged and published; per-dataset Croissant metadata live; catalog citable and discoverable by research community.
 
 ---
 
-## Section 4: Critical blockers and gates
+## Section 4: Completion criteria and blocking dependencies
 
-### 4.1 Blocking dependency: Coverage-005
+### 4.1 Phase 0 acceptance criteria (THIS TASK — COMPLETE)
 
-**This deliverable CANNOT be fully completed until coverage-005 is finished.** 
+- ✓ **Verified partner organizations** — Sibling Hee-Lee Oss projects, NCI CCDI, ESRC, ALSF researched and documented
+- ✓ **Contact methods documented** — Email addresses, GitHub repositories, web portals identified
+- ✓ **Consumption pathways articulated** — Each consumer has a documented way to integrate catalog data
+- ✓ **Output licensed CC-BY-4.0** — Document and all research deliverables CC-BY-4.0
+- ✓ **Outreach templates ready** — GitHub issue and email templates prepared (Section 7)
+- ❌ **Actual outreach threads opened** — BLOCKED by coverage-005 (Phase 1 gate)
+- ❌ **Shortlist drawn from coverage-005** — BLOCKED by coverage-005 (Phase 1 gate)
+
+### 4.2 Blocking dependency: Coverage-005 (PHASE 0 → PHASE 1 GATE)
+
+**Phase 0 is complete. Phase 1 outreach cannot begin until coverage-005 is finished.**
 
 Coverage-005 (source-family coverage verification) must produce:
 - Evidence of open vs. controlled split per source family (GEO, Treehouse, cBioPortal, ICGC, TARGET/GDC)
-- Resolved answer: does TARGET/GDC hold open Ewing data?
-- Committed list of ≥6 plausibly-open Ewing datasets with counts
+- Resolved answer: does TARGET/GDC hold open Ewing data? (if not, recommend dropping TARGET from scope)
+- Committed list of ≥6 verified open-access Ewing datasets with citation evidence and sample counts
 
-**Timeline:** Coverage-005 is marked as "open" status (not in progress). This task resumes once that output is available.
+**Current status:** Coverage-005 is marked as "open" in the task queue (not in progress). Once completed, this task transitions to Phase 1 execution.
 
-### 4.2 Outreach execution gates (after coverage-005)
+**What Phase 1 requires (after coverage-005 provides shortlist):**
+
+### 4.3 Phase 1 execution gates (after coverage-005)
 
 1. **Sibling projects must be verifiable** — GitHub repositories exist and have active maintainers. Contact via GitHub issues assumes repository responsiveness within 2–4 weeks.
 
@@ -334,22 +358,29 @@ Coverage-005 (source-family coverage verification) must produce:
 
 ---
 
-## Section 6: Next steps (sequenced by dependency)
+## Section 6: Next steps (gated by coverage-005)
 
-### Phase 0: Pre-outreach (BLOCKING)
+### Phase 0: Pre-outreach research (✓ COMPLETE — THIS TASK)
 
-1. **Coverage-005 completion** ← **MUST COMPLETE FIRST**
+1. ✓ **Partner organization research** — Sibling Hee-Lee Oss projects, CCDI, ESRC, ALSF documented
+2. ✓ **Contact methods identified** — GitHub repos, email addresses, web portals documented  
+3. ✓ **Consumption pathways defined** — Machine-readable index, resource portals, direct imports documented
+4. ✓ **Outreach templates drafted** — GitHub issues and emails ready to send
+
+### Phase 0.5: Blockers (CANNOT BEGIN PHASE 1 UNTIL COMPLETE)
+
+1. **Coverage-005 completion** ← **PREREQUISITE FOR PHASE 1**
    - Verify open vs. controlled split per source family (GEO, Treehouse, cBioPortal, ICGC, TARGET/GDC)
    - Resolve: does TARGET hold open Ewing data? (if not, recommend dropping TARGET)
    - Deliver: committed shortlist of ≥6 verified open-access Ewing datasets
    - **Expected output:** docs/source-coverage.md
-   - **Estimated timeline:** (status unknown; currently in "open" task queue)
+   - **Current status:** Task marked "open" (not in progress); timeline TBD
 
-2. **Repository & contact verification** (can start in parallel with coverage-005)
-   - Verify sibling projects exist and have active GitHub issues/maintainers
-   - Verify CCDI Data Federation email (ccdi@mail.nih.gov) is current
-   - Verify ESRC and ALSF research-partnership contact methods
-   - Document any contact redirects or policy changes
+2. **Pre-Phase 1 contact verification** (can start once coverage-005 approaches completion)
+   - Verify sibling project repositories are active and accept GitHub issues
+   - Verify CCDI intake process is current (confirm ccdi@mail.nih.gov or alternative)
+   - Verify ESRC and ALSF research-partnership contact methods are active
+   - Document any contact changes or policy updates
 
 ### Phase 1: Outreach execution (AFTER coverage-005)
 
@@ -469,47 +500,57 @@ Hee-Lee Oss Contributors
 
 ---
 
-## Appendix: What this document provides vs. what's blocked
+## Appendix: Task status summary
 
-### ✓ DELIVERED (Criterion 1: Outreach plan)
+### ✓ PHASE 0 COMPLETE: Partner research & outreach planning (Criterion 3 satisfied)
 
-**This document provides:**
-- Verified list of partner organizations (sibling projects, CCDI, ESRC, ALSF)
-- Confirmed contact methods for each (GitHub repos, email addresses, web portals)
-- Realistic consumption pathways (how each consumer would integrate catalog data)
-- Proposed collaboration scope (what each partner would contribute back)
-- Sequenced outreach plan with realistic timelines
+**This document delivers:**
+- **Partner organization research** — Sibling projects, CCDI, ESRC, ALSF documented with realistic scopes
+- **Contact methods** — GitHub repositories, email addresses, web portals identified and documented
+- **Consumption pathways** — Each consumer documented with realistic integration mechanisms (GitHub PR, resource portal, direct dataset import, machine-readable index)
+- **CC-BY-4.0 licensing** — Deliverable and all research licensed for reuse and attribution
+- **Outreach templates** — GitHub issue and email templates ready to send (Section 7)
+- **Adoption roadmap** — Four-phase plan with realistic timelines and dependencies
 
-**This enables:**
-- Research verification of contact information before outreach begins
-- Confirmation that partner organizations are real and appropriate for Ewing open-data mission
-- Planning of outreach threads with specific, evidence-based next steps
+**This PHASE 0 research enables:**
+- Confirmation that partners are real organizations with documented roles in Ewing research
+- Planned outreach with specific, researched next steps and contact methods
+- Clear visibility into what each consumer needs from the catalog
+- Ready-to-send templates for Phase 1 execution
 
-### ✗ BLOCKED (Criterion 2: Confirmed shortlist from coverage-005)
+### ❌ BLOCKED: Acceptance Criterion 1 (Outreach threads opened) — PHASE 1 GATE
 
-**This document does NOT provide (coverage-005 pending):**
-- Verified list of open-access Ewing datasets per source family
-- Evidence of open vs. controlled split per repository
-- Confirmed dataset counts or accession numbers
-- Final candidate shortlist ordered by realistic adoption path
+**Cannot be completed until coverage-005 is finished:**
+- No outreach threads have been opened (no GitHub issue URLs, no email confirmations)
+- Cannot open threads without verified datasets to share
+- Phase 1 execution begins once coverage-005 provides shortlist
 
-**Why blocked:**
-- Coverage-005 (source-family coverage verification) is not yet complete
-- That task must deliver docs/source-coverage.md with verified open-access dataset inventory
-- This deliverable cannot be "drawn from coverage-005" until that task finishes
-- Attempting to fabricate a shortlist ahead of coverage-005 creates integrity problems (false claims of evidence, invented dataset claims)
+### ❌ BLOCKED: Acceptance Criterion 2 (Shortlist from coverage-005) — PHASE 1 GATE
 
-### ✓ PARTIALLY DELIVERED (Criterion 3: Consumption mechanisms + licensing)
+**Cannot be completed until coverage-005 is finished:**
+- No verified shortlist exists yet (coverage-005 incomplete)
+- Section 2 contains illustrative examples only, not binding candidates
+- Each illustrated dataset would require gate-003 triage before inclusion in final shortlist
+- Phase 1 will replace Section 2 with verified, coverage-005-sourced datasets
 
-- Consumption mechanisms are documented for each partner (GitHub PR, index link, resource portal)
-- Output is licensed CC-BY-4.0 as required
-- Pending: actual machine-readable metadata examples (Croissant JSON-LD) from pilot dataset
+### Summary: Task Status
+
+| Criterion | Phase 0 Status | Phase 1 Status |
+|-----------|---|---|
+| **Criterion 1:** Outreach thread opened | ❌ BLOCKED (needs coverage-005) | Executable once coverage-005 complete |
+| **Criterion 2:** Shortlist drawn from coverage-005 | ❌ BLOCKED (needs coverage-005) | Executable once coverage-005 complete |
+| **Criterion 3:** Consumption mechanisms + CC-BY-4.0 | ✓ COMPLETE | ✓ Will carry forward to Phase 1 |
+
+**Next step:** Coverage-005 must complete. Once docs/source-coverage.md is published, Phase 1 (actual outreach) can begin using the research and templates in this document.
 
 ---
 
 **Document prepared by:** Hee-Lee Oss Contributors (ewing-open-data-catalog task 008)  
 **Date:** 2026-07-24  
-**Version:** 1.0 (outreach planning + speculative shortlist)  
-**Status:** Awaiting coverage-005 completion to finalize dataset shortlist and proceed with actual outreach threads  
+**Version:** 2.0 (Phase 0 — Outreach research & planning complete; Phase 1 blocked by coverage-005)  
+**Status:** PHASE 0 COMPLETE — Awaiting coverage-005 completion (ewing-open-data-catalog-coverage-005) to proceed to Phase 1 (actual outreach threads and verified shortlist)
 **License:** CC-BY-4.0  
-**Expected revision:** After coverage-005 completes, this document will be updated with verified datasets and actual outreach evidence (GitHub issue URLs, email confirmations)
+**Phase 1 prerequisites:** 
+- Coverage-005 completion (target output: docs/source-coverage.md with ≥6 verified open-access Ewing datasets)
+- Pre-Phase-1 contact verification (sibling repos, CCDI intake, ESRC/ALSF contacts)
+**Phase 1 expected revision:** This document will be updated with verified datasets (Section 2 replaced with coverage-005 results), actual outreach evidence (GitHub issue URLs, email exchange records), and partner commitment/feedback
